@@ -31,7 +31,7 @@ const inputsPassword = (e) =>{
    
     // axios.post('localhost:4000/', { user }, {headers: {'content-type': 'application/json'}});
     // alert( user.email);
-    fetch('http://localhost:4000/users', {
+    fetch('http://localhost:4000/singup', {
         method: 'POST',
         headers: {
           "Content-type": "application/json",
