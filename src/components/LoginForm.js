@@ -34,7 +34,7 @@ const inputsPassword = (e) =>{
             window.location = "/landing"    
         }else if(r.status === 401){
             alert("Email or Password is wrong \n Please try again")
-        }
+        } 
       }).catch(e => console.log(e));
   }
 	return (

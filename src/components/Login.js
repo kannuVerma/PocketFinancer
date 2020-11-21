@@ -7,7 +7,7 @@ function Login() {
         <div>
            
  			<LoginForm />
-             <p>Don't have an account></p>
+             <p>Don't have an account</p>
              <a href='/signup'>Click here to signup</a>
  		</div>
   );
