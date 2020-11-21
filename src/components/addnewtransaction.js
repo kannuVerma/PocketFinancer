@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 export const AddNewTransaction = () => {
     const [expense,setExpense] = useState('');
     const [amount,setAmount] = useState(0);
+    
     return (        
     <div>
         <h3>Add new transaction</h3>
@@ -17,10 +18,13 @@ export const AddNewTransaction = () => {
         <div>
             <label for="category">Category:</label>
             <select id="category" name="category">
-                <option value="Salary">Salary</option>
-                <option value="Groceries">Groceries</option>
-                <option value="Rent">Rent</option>
                 <option value="Entertainment">Entertainment</option>
+                <option value="Food and Drinks">Food and Drinks</option>
+                <option value="Home">Home</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Life">Life</option>
+                <option value="Other">Other</option>
             </select>
         </div>
         <div>
