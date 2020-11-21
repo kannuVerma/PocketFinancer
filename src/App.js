@@ -4,7 +4,7 @@ import Login from './components/Login';
 import Landing from './components/Landing';
 
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
 	return (
@@ -13,20 +13,7 @@ const App = () => {
 
 	<div className='App'>
 				<header className='App-header'>
-					{/* <img src={logo} className='App-logo' alt='logo' /> */}
-					<h1 className='App-title'>Welcome to PocketFinancer</h1>
-					{/* <Link className='marvellink' to='/'>
-						Home
-					</Link> */}
-					{/* <Link className='marvellink' to='/characters/page/0'>
-						Characters
-					</Link>
-          <Link className='marvellink' to='/budge'>
-						Comics
-					</Link>
-          <Link className='marvellink' to='/series/page/0'>
-						Series
-					</Link> */}
+					<h1 className='App-title'>Welcome to PocketFinancer</h1>					
 				</header>
 				<br />
 				<br />
