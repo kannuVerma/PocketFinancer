@@ -1,3 +1,4 @@
+/* eslint-disable no-throw-literal */
 const mongoCollections = require("../config/mongoCollections");
 const { ObjectId } = require("mongodb");
 const users = mongoCollections.users;

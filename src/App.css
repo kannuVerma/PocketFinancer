@@ -128,3 +128,12 @@ dd {
 	display: inline;
 	margin-left: 5px;
 }
+
+
+  .budget-color {
+	  color: green
+  }
+
+  .expence-color {
+	  color:red
+  }
