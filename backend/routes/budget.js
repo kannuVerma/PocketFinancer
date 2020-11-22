@@ -12,7 +12,7 @@ router.get("/:id", async (req, res) => {
     if(budgetList){
       res.json(budgetList);
     }else{
-        res.send("No expense data exists")
+        res.send("No Budget data exists")
     }
     
   } catch (e) {
@@ -22,8 +22,6 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    // console.log(req)
-    console.log(req.body)
     const budgetPostData = req.body;
 
     try {
@@ -57,6 +55,20 @@ router.post("/", async (req, res) => {
     } catch (e) {
       res.status(500).send({ error: e });
       console.log(e);
+    }
+  });
+  router.delete("/", async (req, res) => {
+    try {
+      const budgetList = await budgetData.deleteBudget(req.body.userId, req.body.budgetId);
+      if(budgetList){
+        res.json(budgetList);
+      }else{
+          res.send("No Budget data exists")
+      }
+      
+    } catch (e) {
+      // Something went wrong with the server!
+      res.status(500).send({ error: e });
     }
   });
   module.exports = router;
