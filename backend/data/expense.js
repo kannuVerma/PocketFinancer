@@ -38,7 +38,8 @@ module.exports = {
           if (typeof desc != "string")
             throw { errocode: 400, field: "Please add description" };
         }
-        const expenseCollection = await expenses();   
+        const expenseCollection = await expenses();  
+        // console.log(req.session.user) 
         let newExpense = {
             date: date,
             amount: amount,  

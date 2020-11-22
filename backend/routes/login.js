@@ -38,6 +38,7 @@ router.post("/", async (req, res) => {
 
         const hour = 3600000;
         req.session.cookie.maxAge = hour;
+        req.session.user = newUser;
         res.json(newUser);
       } 
       else {

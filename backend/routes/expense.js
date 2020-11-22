@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const expenseData = data.expense;
+const userData = data.users;
 
 router.post("/", async (req, res) => {
     // console.log(req)
@@ -14,10 +15,10 @@ router.post("/", async (req, res) => {
        amount,
        desc,
        category
-
+       
         
       } = expensePostData;
-  
+        console.log(req.session.user)
 
       if (
         date &&
@@ -32,8 +33,9 @@ router.post("/", async (req, res) => {
             amount,
             desc,
             category
-           
           );
+
+        await userData.addExpenseToUser(req.session.user._id, String(newExpense._id));
           res.json(newExpense);
         } catch (e) {
           console.log(e);        
