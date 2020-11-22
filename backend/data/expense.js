@@ -43,12 +43,12 @@ module.exports = {
         date,
         amount,
         desc,
-        cateogry
+        category
       ) {
         if (!date) throw `You must provide date`;
         if (!amount) throw `You must provide amount`;
         if (!desc) throw `You must provide desc`;
-        if (!cateogry) throw `You must provide cateogory`;
+        if (!category) throw `You must provide cateogory`;
         if (amount) {
           if (typeof amount != "number") throw `Please give a valid number`;
         }
@@ -62,7 +62,7 @@ module.exports = {
             date: date,
             amount: amount,  
             desc: desc,
-            cateogry: cateogry       
+            category: category       
           }; 
         const insertInfo = await expenseCollection.insertOne(newExpense);
         // const expense = await this.getExpenseById(newId);
