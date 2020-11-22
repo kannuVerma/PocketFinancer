@@ -7,7 +7,6 @@ export const AddNewTransaction = () => {
     const [category, setCategory] = useState('');
     const [date, setDate] = useState('');
 
-
     const submit = e => {
         e.preventDefault();
 
