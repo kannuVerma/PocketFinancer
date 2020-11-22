@@ -4,6 +4,24 @@ const data = require("../data");
 const expenseData = data.expense;
 const userData = data.users;
 
+
+router.get("/", async (req, res) => {
+    try {
+      const expenseList = await expenseData.getUserAllExpenses(req.session.user._id);
+      console.log("expenseList" + expenseList);
+      if(expenseList){
+        res.json(expenseList);
+      }else{
+          res.send("No expense data exists")
+      }
+      
+    } catch (e) {
+      // Something went wrong with the server!
+      res.status(500).send({ error: e });
+    }
+  });
+
+
 router.post("/", async (req, res) => {
     // console.log(req)
     console.log(req.body)
