@@ -72,5 +72,31 @@ module.exports = {
         const newId = insertInfo.insertedId;
         const expense = await this.getExpenseById(newId);
         return expense;
+      },
+      async deleteExpense(
+        userId, expenseId
+      ) {
+        if(!expenseId) throw `No expense id given to be deleted`;
+        
+        // const expense = await this.getExpenseById(expenseId);
+        const expenseIdString = expenseId;
+        if (typeof expenseId == "string") {
+          expenseId = ObjectId.createFromHexString(expenseId);
+        }
+        
+        const expenseCollection = await expenses();
+        const removedExpense = await expenseCollection.deleteOne({"_id": expenseId });
+
+        const userCollection = await users();
+        const updateExpense = {expenseIds:  expenseIdString};
+        console.log("Expense id to be deleted", expenseId);
+        const updatedInfo = await userCollection.updateOne(
+          { _id: ObjectId.createFromHexString(userId) },
+          { $pull: updateExpense }
+        )
+        if (updatedInfo.modifiedCount === 0) {
+          throw `could not delete the expense from users table`;
+        }
+        return expenseIdString;
       }
 };

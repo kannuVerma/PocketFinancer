@@ -67,4 +67,22 @@ router.post("/", async (req, res) => {
       console.log(e);
     }
   });
+
+  router.delete("/", async (req, res) => {
+    try {
+      const expenseList = await expenseData.deleteExpense(req.body.userId, req.body.expenseId);
+      
+      console.log("expenseList" + expenseList);
+      if(expenseList){
+        res.json(expenseList);
+      }else{
+          res.send("No expense data exists")
+      }
+      
+    } catch (e) {
+      // Something went wrong with the server!
+      res.status(500).send({ error: e });
+    }
+  });
+
   module.exports = router;
