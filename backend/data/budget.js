@@ -58,5 +58,30 @@ module.exports = {
         const newId = insertInfo.insertedId;
         const budget = await this.getBudgetById(newId);
         return budget;
+      },
+      async deleteBudget(
+        userId, budgetId
+      ) {
+        if(!budgetId) throw `No Budget id given to be deleted`;
+        
+        
+        const budgeIdString = budgetId;
+        if (typeof budgetId == "string") {
+          budgetId = ObjectId.createFromHexString(budgetId);
+        }
+        
+        const budgetCollection = await budgets();
+        const removedBudget = await budgetCollection.deleteOne({"_id": budgetId });
+
+        const userCollection = await users();
+        const updateBudget = {budgetIds:  budgeIdString};
+        const updatedInfo = await userCollection.updateOne(
+          { _id: ObjectId.createFromHexString(userId) },
+          { $pull: updateBudget }
+        )
+        if (updatedInfo.modifiedCount === 0) {
+          throw `could not delete the budget from users table`;
+        }
+        return budgeIdString;
       }
 };

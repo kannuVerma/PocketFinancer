@@ -8,7 +8,6 @@ const userData = data.users;
 router.get("/:id", async (req, res) => {
     try {
       const expenseList = await expenseData.getUserAllExpenses(req.params.id);
-      console.log("expenseList" + expenseList);
       if(expenseList){
         res.json(expenseList);
       }else{
@@ -35,7 +34,6 @@ router.post("/", async (req, res) => {
        
         
       } = expensePostData;
-        console.log("Session user : " + req.session.user)
 
       if (
         date &&
@@ -72,8 +70,6 @@ router.post("/", async (req, res) => {
     try {
       console.log(req.body, "jay")
       const expenseList = await expenseData.deleteExpense(req.body.userId, req.body.expenseId);
-      
-      console.log("expenseList" + expenseList);
       if(expenseList){
         res.json(expenseList);
       }else{
