@@ -12,21 +12,24 @@ router.post("/", async (req, res) => {
       let {
        date,
        amount,
-       category       
+       category,
+       userId    
       } = budgetPostData;
   
 
       if (
         date &&
        amount &&
-       category
-       
+       category &&
+       userId
+        
       ) {
         try {
           const newbudget = await budgetData.addbudget(
             date,
             amount,
-            category
+            category,
+            userId
            
           );
           res.json(newbudget);

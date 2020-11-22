@@ -5,9 +5,9 @@ const expenseData = data.expense;
 const userData = data.users;
 
 
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
-      const expenseList = await expenseData.getUserAllExpenses(req.session.user._id);
+      const expenseList = await expenseData.getUserAllExpenses(req.params.id);
       console.log("expenseList" + expenseList);
       if(expenseList){
         res.json(expenseList);
@@ -23,9 +23,6 @@ router.get("/", async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-    // console.log(req)
-    //console.log(req.body)
-    console.log(req.session)
     const expensePostData = req.body;
 
     try {
