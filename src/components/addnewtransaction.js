@@ -11,11 +11,24 @@ export const AddNewTransaction = () => {
         e.preventDefault();
 
         const addNewTransaction = {
-            expense,
+            desc : expense,
             amount: parseInt(amount),
-            category,
-            date
+            category : category,
+            date : date
         }
+        fetch('http://localhost:4000/expense',{
+          method:'POST',
+          headers: {
+            "Content-type": "application/json",
+            "Accept": "application/json",
+            "Accept-Charset": "utf-8"
+          },
+          body: JSON.stringify(addNewTransaction),
+        }).then(r => {
+          if(r.status === 200){
+            console.log(r)
+          }
+        })
     }
     return (        
     <div>

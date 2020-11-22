@@ -25,6 +25,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
     // console.log(req)
     console.log(req.body)
+    console.log(req.session)
     const expensePostData = req.body;
 
     try {
