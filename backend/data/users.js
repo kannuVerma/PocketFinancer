@@ -57,6 +57,7 @@ module.exports = {
     }
     return updatedInfo;
   },
+  
     async addUser(
         firstName,
         lastName,

@@ -2,6 +2,7 @@
 const mongoCollections = require("../config/mongoCollections");
 const { ObjectId } = require("mongodb");
 const expenses = mongoCollections.expense;
+const users = mongoCollections.users;
 
 module.exports = {
     async getExpenseById(id) {
@@ -21,6 +22,23 @@ module.exports = {
         
         if (expense === null) throw `No expense with that id`;
         return expense;
+      },
+      async getUserAllExpenses(userId){
+
+        console.log("Inside get all expenses");
+        if (typeof userId == "string") {
+          userId = ObjectId.createFromHexString(userId);
+        }
+        const userCollection = await users();
+        let user = await userCollection.findOne({ _id: userId })
+        let allExpenses = [] ;
+
+        
+        allExpenses = await Promise.all( user.expenseIds.map(async expense => {
+          return await this.getExpenseById(expense);
+        }))
+        
+        return allExpenses;
       },
     async addExpense(
         date,
