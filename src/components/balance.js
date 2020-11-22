@@ -1,6 +1,8 @@
 import React from 'react'
 
-export const Balance = () => {
+export const Balance = (props) => {
+    let id = props.id;
+    
     return (
     <div>        
         <h4>Your existing Balance</h4>

@@ -77,7 +77,7 @@ module.exports = {
         userId, expenseId
       ) {
         if(!expenseId) throw `No expense id given to be deleted`;
-        
+        console.log(userId , expenseId , "jay")
         // const expense = await this.getExpenseById(expenseId);
         const expenseIdString = expenseId;
         if (typeof expenseId == "string") {
