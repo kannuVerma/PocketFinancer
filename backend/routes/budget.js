@@ -2,6 +2,24 @@ const express = require("express");
 const router = express.Router();
 const data = require("../data");
 const budgetData = data.budget;
+const userData = data.users;
+
+
+router.get("/:id", async (req, res) => {
+  try {
+    const budgetList = await budgetData.getUserAllBudgets(req.params.id);
+    
+    if(budgetList){
+      res.json(budgetList);
+    }else{
+        res.send("No expense data exists")
+    }
+    
+  } catch (e) {
+    // Something went wrong with the server!
+    res.status(500).send({ error: e });
+  }
+});
 
 router.post("/", async (req, res) => {
     // console.log(req)
@@ -10,7 +28,6 @@ router.post("/", async (req, res) => {
 
     try {
       let {
-       date,
        amount,
        category,
        userId    
@@ -18,20 +35,17 @@ router.post("/", async (req, res) => {
   
 
       if (
-        date &&
        amount &&
        category &&
        userId
         
       ) {
         try {
-          const newbudget = await budgetData.addbudget(
-            date,
+          const newbudget = await budgetData.addBudget(
             amount,
-            category,
-            userId
-           
+            category    
           );
+          await userData.addBudgetToUser(userId, String(newbudget._id));
           res.json(newbudget);
         } catch (e) {
           console.log(e);        

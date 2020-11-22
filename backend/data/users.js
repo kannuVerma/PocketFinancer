@@ -57,6 +57,24 @@ module.exports = {
     }
     return updatedInfo;
   },
+  async addBudgetToUser(
+    userId, budgetId
+  ){
+    const userCollection = await users();
+    const updateBudget = {budgetIds:  budgetId}  
+    if (typeof userId == "string") {
+      userId = ObjectId.createFromHexString(userId);
+    }
+    
+    const updatedInfo = await userCollection.updateOne(
+      { _id: userId },
+      { $push: updateBudget }
+    );
+    if (updatedInfo.modifiedCount === 0) {
+      throw `could not update`;
+    }
+    return updatedInfo;
+  },
   
     async addUser(
         firstName,
