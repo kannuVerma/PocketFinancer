@@ -1,12 +1,27 @@
-import React, { useState } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useState, useContext } from 'react'
+
 export const AddNewTransaction = () => {
     const [expense,setExpense] = useState('');
     const [amount,setAmount] = useState(0);
-    
+    const [category, setCategory] = useState('');
+    const [date, setDate] = useState('');
+
+
+    const submit = e => {
+        e.preventDefault();
+
+        const addNewTransaction = {
+            expense,
+            amount: parseInt(amount),
+            category,
+            date
+        }
+    }
     return (        
     <div>
         <h3>Add new transaction</h3>
-      <form id="form">
+      <form onSubmit = {submit}>
         <div>
           <label for="expense">Expense: </label>
           <input type="expense" value = {expense} onChange={(e) => setExpense(e.target.value)} placeholder="Enter Expense" />
@@ -17,7 +32,7 @@ export const AddNewTransaction = () => {
         </div>
         <div>
             <label for="category">Category:</label>
-            <select id="category" name="category">
+            <select value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
                 <option value="Entertainment">Entertainment</option>
                 <option value="Food and Drinks">Food and Drinks</option>
                 <option value="Home">Home</option>
@@ -29,7 +44,7 @@ export const AddNewTransaction = () => {
         </div>
         <div>
             <label for="date">Date:</label>
-            <input type="date" id="date" name="date" />
+            <input type="date" value = {date} onChange={(e) => setDate(e.target.value)} name="date" />
         </div>
         <button>Add transaction</button>
       </form>
