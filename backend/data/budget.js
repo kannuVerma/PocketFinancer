@@ -40,18 +40,18 @@ module.exports = {
       },
     async addBudget(
         amount,
-        cateogry
+        category
       ) {
         // if (!date) throw `You must provide date`;
         if (!amount) throw `You must provide amount`;
-        if (!cateogry) throw `You must provide cateogory`;
+        if (!category) throw `You must provide cateogory`;
         if (amount) {
           if (typeof amount != "number") throw `Please give a valid number`;
         }       
         const budgetCollection = await budgets();   
         let newbudget = {
             amount: amount,  
-            cateogry: cateogry       
+            category: category       
           }; 
         const insertInfo = await budgetCollection.insertOne(newbudget);
         if (insertInfo.insertedCount === 0) throw `Could not add User`;    

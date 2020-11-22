@@ -38,11 +38,35 @@ export const History = (props) => {
 
     return (
     <div>
-        <h3>History</h3>
-        {expense.map((trans,i) => {
-                        return <li key={trans._id}>{trans.desc} <span>${trans.amount}</span><button onClick={() => deleteTransaction(trans._id)} >X</button></li>;
+        <h3>Transaction History</h3>
+        <table>
+            <tr>
+                <th>Expense</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Delete</th>
+            </tr>
+            {expense.map((trans,i) => {
+                        return <tr> 
+                                <td>
+                                    {trans.desc} 
+                                </td>
+                                <td>
+                                    {trans.amount}
+                                </td>
+                                <td>
+                                    {trans.category}    
+                                </td>
+                                <td>
+                                    {trans.date}    
+                                </td>
+                                <td>
+                                    <button onClick={() => deleteTransaction(trans._id)} >X</button>
+                                </td>
+                            </tr>;
         })}
-      
+        </table>
 
     </div>
     )
