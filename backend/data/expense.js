@@ -25,7 +25,6 @@ module.exports = {
       },
       async getUserAllExpenses(userId){
 
-        console.log("Inside get all expenses");
         if (typeof userId == "string") {
           userId = ObjectId.createFromHexString(userId);
         }
