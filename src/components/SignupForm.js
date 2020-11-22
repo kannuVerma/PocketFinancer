@@ -38,6 +38,7 @@ const inputsPassword = (e) =>{
           "Accept": "application/json",
           "Accept-Charset": "utf-8"
       },
+      credentials: 'include',
         body: JSON.stringify(user),
     }).then(r => {console.log(r)
       if(r.status === 200){

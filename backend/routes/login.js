@@ -34,11 +34,12 @@ router.post("/", async (req, res) => {
         newUser.password
       );
       if (passwordMatch) {
-        req.session.user = newUser;
+        // req.session.user = newUser;
 
         const hour = 3600000;
         req.session.cookie.maxAge = hour;
         req.session.user = newUser;
+        console.log( "Session : " + req.session );
         res.json(newUser);
       } 
       else {
