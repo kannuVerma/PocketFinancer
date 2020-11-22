@@ -39,6 +39,24 @@ module.exports = {
     const userList = await userCollection.find({}).toArray();
     return userList;
   },
+  async addExpenseToUser(
+    userId, expenseId
+  ){
+    const userCollection = await users();
+    const updateExpense = {expenseIds:  expenseId}  
+    if (typeof userId == "string") {
+      userId = ObjectId.createFromHexString(userId);
+    }
+    
+    const updatedInfo = await userCollection.updateOne(
+      { _id: userId },
+      { $push: updateExpense }
+    );
+    if (updatedInfo.modifiedCount === 0) {
+      throw `could not update`;
+    }
+    return updatedInfo;
+  },
     async addUser(
         firstName,
         lastName,
