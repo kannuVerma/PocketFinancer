@@ -1,22 +1,17 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useContext } from 'react'
+import React, {useState} from 'react'
 
-export const AddNewTransaction = (props) => {
-    const [expense,setExpense] = useState('');
+export const Budget = (props) => {
     const [amount,setAmount] = useState(0);
     const [category, setCategory] = useState('Entertainment');
-    const [date, setDate] = useState('');
 
     const submit = e => {
         e.preventDefault();
-        const addNewTransaction = {
-            desc : expense,
+        const addNewBudget = {
             amount: parseInt(amount),
             category : category,
-            date : date,
             userId: props.id
         }
-        fetch('http://localhost:4000/expense',{
+        fetch('http://localhost:4000/budget',{
           method:'POST',
           headers: {
             "Content-type": "application/json",
@@ -24,23 +19,19 @@ export const AddNewTransaction = (props) => {
             "Accept-Charset": "utf-8"
           },
           //credentials: 'include',
-          body: JSON.stringify(addNewTransaction),
+          body: JSON.stringify(addNewBudget),
         }).then(r => {
           if(r.status === 200){
             console.log(r)
-            props.transactionsuccess(r);
+            props.budgetsuccess(r);
           }
         })
-
     }
+
     return (        
     <div>
-        <h3>Add new transaction</h3>
+        <h3>Add Budget</h3>
       <form onSubmit = {submit}>
-        <div>
-          <label for="expense">Expense: </label>
-          <input type="expense" value = {expense} onChange={(e) => setExpense(e.target.value)} placeholder="Enter Expense" />
-        </div>
         <div>
           <label for="amount">Amount: </label>
           <input type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
@@ -57,11 +48,7 @@ export const AddNewTransaction = (props) => {
                 <option value="Other">Other</option>
             </select>
         </div>
-        <div>
-            <label for="date">Date:</label>
-            <input type="date" value = {date} onChange={(e) => setDate(e.target.value)} name="date" />
-        </div>
-        <button>Add transaction</button>
+        <button>Add Budget Category</button>
       </form>
     </div>
     )
