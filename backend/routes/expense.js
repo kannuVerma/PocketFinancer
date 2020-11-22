@@ -68,6 +68,7 @@ router.post("/", async (req, res) => {
 
   router.delete("/", async (req, res) => {
     try {
+      console.log(req.body, "jay")
       const expenseList = await expenseData.deleteExpense(req.body.userId, req.body.expenseId);
       if(expenseList){
         res.json(expenseList);
