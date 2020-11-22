@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
     // console.log(req)
-    console.log(req.body)
+    //console.log(req.body)
     console.log(req.session)
     const expensePostData = req.body;
 
@@ -33,17 +33,19 @@ router.post("/", async (req, res) => {
        date,
        amount,
        desc,
-       category
+       category,
+       userId
        
         
       } = expensePostData;
-        console.log(req.session.user)
+        console.log("Session user : " + req.session.user)
 
       if (
         date &&
        amount &&
        desc &&
-       category
+       category &&
+       userId
        
       ) {
         try {
@@ -54,7 +56,7 @@ router.post("/", async (req, res) => {
             category
           );
 
-        await userData.addExpenseToUser(req.session.user._id, String(newExpense._id));
+        await userData.addExpenseToUser(userId, String(newExpense._id));
           res.json(newExpense);
         } catch (e) {
           console.log(e);        

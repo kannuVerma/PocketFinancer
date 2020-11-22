@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react'
 
-export const AddNewTransaction = () => {
+export const AddNewTransaction = (props) => {
     const [expense,setExpense] = useState('');
     const [amount,setAmount] = useState(0);
     const [category, setCategory] = useState('');
@@ -9,12 +9,12 @@ export const AddNewTransaction = () => {
 
     const submit = e => {
         e.preventDefault();
-
         const addNewTransaction = {
             desc : expense,
             amount: parseInt(amount),
             category : category,
-            date : date
+            date : date,
+            userId: props.id
         }
         fetch('http://localhost:4000/expense',{
           method:'POST',
@@ -23,6 +23,7 @@ export const AddNewTransaction = () => {
             "Accept": "application/json",
             "Accept-Charset": "utf-8"
           },
+          //credentials: 'include',
           body: JSON.stringify(addNewTransaction),
         }).then(r => {
           if(r.status === 200){

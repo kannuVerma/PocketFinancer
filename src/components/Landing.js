@@ -6,13 +6,14 @@ import {AddNewTransaction} from './addnewtransaction'
 
 import '../App.css'
 
-function Landing() {
+function Landing(props) {
+  console.log("Props in landing: " + props)
   return (
         <div>
           <Header />
           <Balance />
           <Incompence />
-          <AddNewTransaction />
+          <AddNewTransaction  id = {props.match.params.id}> </AddNewTransaction>/>
       
             <a href='/login'>Logout</a>
  		</div>

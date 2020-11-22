@@ -26,15 +26,25 @@ const inputsPassword = (e) =>{
           "Accept": "application/json",
           "Accept-Charset": "utf-8"
       },
+    
         body: JSON.stringify(credentials),
-    }).then(r => {console.log(r)
+    }).then(response => {
+      return response.json()
+      
+    })
+    .then(data => {
+      console.log(data)
+      window.location = "/landing/" + data._id
+    });
+    /*.then(r => {
+        console.log(r)
         if(r.status === 200){
             console.log("right credentials")
             window.location = "/landing"    
         }else if(r.status === 401){
             alert("Email or Password is wrong \n Please try again")
         } 
-      }).catch(e => console.log(e));
+      }).catch(e => console.log(e));*/
   }
 	return (
 
