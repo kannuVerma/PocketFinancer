@@ -41,6 +41,7 @@ module.exports = {
         return allBudgets;
       },
     async addBudget(
+        userId,
         amount,
         category
       ) {
@@ -49,17 +50,34 @@ module.exports = {
         if (!category) throw `You must provide cateogory`;
         if (amount) {
           if (typeof amount != "number") throw `Please give a valid number`;
-        }       
+        }  
+        const userIdBudgets = await this.getUserAllBudgets(userId);
+
+
+        const budgetInfo = userIdBudgets.filter (element => {
+          return (element.category === category)
+        })
         const budgetCollection = await budgets();   
-        let newbudget = {
+        if(budgetInfo.length > 0){
+          let newbudget = {
             amount: amount,  
-            category: category       
+            category: category,
+            _id: budgetInfo[0]._id     
           }; 
-        const insertInfo = await budgetCollection.insertOne(newbudget);
-        if (insertInfo.insertedCount === 0) throw `Could not add User`;    
-        const newId = insertInfo.insertedId;
-        const budget = await this.getBudgetById(newId);
-        return budget;
+          const updateInfo = await budgetCollection.updateOne(newbudget);
+        }else{
+          
+          let newbudget = {
+              amount: amount,  
+              category: category       
+            }; 
+          const insertInfo = await budgetCollection.insertOne(newbudget);
+          if (insertInfo.insertedCount === 0) throw `Could not add User`;    
+          const newId = insertInfo.insertedId;
+          const budget = await this.getBudgetById(newId);
+          return budget;
+        }
+        
       },
       async deleteBudget(
         userId, budgetId
