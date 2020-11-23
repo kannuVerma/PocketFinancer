@@ -37,7 +37,7 @@ function Landing(props) {
           <BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess} deletesuccessbudget = {deletesuccessbudget} />
           <Budget id = {props.match.params.id} budgetsuccess = {budgetsuccess} deletebudgetSuccess = {deletebudgetSuccess}/>
           <Balance id = {props.match.params.id}/>
-          <Incompence id = {props.match.params.id} transactionSuccess = {transactionSuccess} deletedIdSuccess = {deletedIdSuccess}/>
+          <Incompence id = {props.match.params.id} transactionSuccess = {transactionSuccess} deletedIdSuccess = {deletedIdSuccess} editSuccess = {editSuccess}/>
           <AddNewTransaction  id = {props.match.params.id} transactionsuccess = {transactionsuccess}/> 
           <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  deletesuccess  = {deletesuccess} editsuccess = {editsuccess} />
             <a href='/login'>Logout</a>
