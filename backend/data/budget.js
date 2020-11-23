@@ -62,9 +62,13 @@ module.exports = {
           let newbudget = {
             amount: amount,  
             category: category,
-            _id: budgetInfo[0]._id     
+            // _id: budgetInfo[0]._id     
           }; 
-          const updateInfo = await budgetCollection.updateOne(newbudget);
+          const updatedInfo = await budgetCollection.updateOne({_id: budgetInfo[0]._id  }, {$set: newbudget});
+          
+          if (updatedInfo.modifiedCount === 0) throw `Could not update`;          
+          const budget = await this.getBudgetById(budgetInfo[0]._id);
+          return budget;
         }else{
           
           let newbudget = {
@@ -72,7 +76,7 @@ module.exports = {
               category: category       
             }; 
           const insertInfo = await budgetCollection.insertOne(newbudget);
-          if (insertInfo.insertedCount === 0) throw `Could not add User`;    
+          if (insertInfo.insertedCount === 0) throw `Could not update`;    
           const newId = insertInfo.insertedId;
           const budget = await this.getBudgetById(newId);
           return budget;
