@@ -14,6 +14,7 @@ function Landing(props) {
   const [deletedIdSuccess, setdeletedidsuccess] = useState(undefined);
   const [budgetSuccess, setbudgetsuccess] = useState(undefined);
   const [editSuccess,seteditSuccess ] = useState(undefined);
+  const [deletebudgetSuccess,setdeletebudgetsuccess] = useState(undefined);
   const transactionsuccess = async(r) => {
     settransactionsuccess(r);
   }
@@ -23,16 +24,20 @@ function Landing(props) {
   const budgetsuccess = async(r) => {
     setbudgetsuccess(r);
   }
+  const deletesuccessbudget = async(r) =>{
+    setdeletebudgetsuccess(r);
+  }
   const editsuccess = async(r) => {
     seteditSuccess(r);
   }
+
  
   return (
         <div>
           <Header />
-          <BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess}/>
-          <Budget id = {props.match.params.id} budgetsuccess = {budgetsuccess}/>
-          <Balance id = {props.match.params.id}/>
+          <BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess} deletesuccessbudget = {deletesuccessbudget} />
+          <Budget id = {props.match.params.id} budgetsuccess = {budgetsuccess} />
+          <Balance id = {props.match.params.id} budgetSuccess = {budgetSuccess} deletebudgetSuccess = {deletebudgetSuccess} transactionSuccess = {transactionSuccess}/>
           <Incompence id = {props.match.params.id} transactionSuccess = {transactionSuccess} deletedIdSuccess = {deletedIdSuccess} editSuccess = {editSuccess}/>
           <AddNewTransaction  id = {props.match.params.id} transactionsuccess = {transactionsuccess}/> 
           <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  deletesuccess  = {deletesuccess} editsuccess = {editsuccess} />

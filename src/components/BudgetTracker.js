@@ -32,7 +32,7 @@ export const BudgetTracker = (props) => {
                 }}
             )
             setdel(deletedid);
-            props.deletesuccess(deletedid);
+            props.deletesuccessbudget(deletedid);
         } catch(e){
             console.log(e);
         }
