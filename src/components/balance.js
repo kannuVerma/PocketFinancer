@@ -18,17 +18,21 @@ export const Balance = (props) => {
         }
         fetchData();
     },
-    [props.budgetSuccess, props.deletedIdSuccess]
+    [props.budgetSuccess, props.transactionSuccess,props.deletebudgetSuccess]
     )
+    const diff = (a,b) =>{
+        return b-a;
+    }
 
     return (
     <div>
-        <h3>Budget List</h3>
+        <h3>Differences</h3>
         <table>
             <tr>
-                <th>Category</th>
                 <th>Amount</th>
+                <th>Category</th>
                 <th>Budget Amount</th>
+                <th>Difference</th>
             </tr>
             {details.map((trans,i) => {
                         return <tr> 
@@ -40,6 +44,9 @@ export const Balance = (props) => {
                                 </td>
                                 <td>
                                     {trans.budgetAmount}
+                                </td>
+                                <td>
+                                    {diff(trans.amount,trans.budgetAmount)}
                                 </td>
                             </tr>;
         })}
