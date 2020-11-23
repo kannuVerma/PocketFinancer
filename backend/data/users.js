@@ -52,9 +52,7 @@ module.exports = {
       { _id: userId },
       { $addToSet: updateExpense }
     );
-    if (updatedInfo.modifiedCount === 0) {
-      throw `could not update`;
-    }
+
     return updatedInfo;
   },
   async addBudgetToUser(
@@ -70,9 +68,7 @@ module.exports = {
       { _id: userId },
       { $addToSet: updateBudget }
     );
-    if (updatedInfo.modifiedCount === 0) {
-      throw `could not update`;
-    }
+    
     return updatedInfo;
   },
   
