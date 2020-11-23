@@ -103,5 +103,40 @@ module.exports = {
           throw `could not delete the budget from users table`;
         }
         return budgeIdString;
+      },
+      async updatedBudget(
+        budgetId, updatedBudget
+      ) {
+          const budgetCollection = await budgets();
+          const updatedBudgetData = {};
+
+          if(typeof(budgetId) != "string" && typeof(budgetId) != "object")
+            throw 'Wrong input';
+
+          if (typeof(budgetId) == "string") {
+            budgetId = ObjectId.createFromHexString(budgetId);
+          }
+          const toEditBudget = await this.getBudgetById(budgetId);
+          if(toEditBudget === null) throw 'No budget found';
+
+          if(updatedBudget.category) {
+            if(typeof(updatedBudget.category) != "string")
+              throw 'Wrong input type';
+            updatedBudgetData.category = updatedBudget.category;
+          }
+
+          if(updatedBudget.amount) {
+            if(typeof(updatedBudget.amount) != "number")
+              throw 'Wrong input type';
+            updatedBudgetData.amount = updatedBudget.amount;
+          }
+
+          const updatedInfo = await budgetCollection.updateOne({_id: budgetId}, {$set: updatedBudgetData});
+        if (updatedInfo.modifiedCount === 0) {
+        throw 'could not update band successfully';
+        }
+
+        return await this.getBudgetById(budgetId);
+          
       }
 };
