@@ -26,7 +26,7 @@ router.get("/budget/:id", async (req, res) => {
     if(budget){
       res.json(budget);
     }else{
-        res.send("No expense data exists")
+        res.send("No budget data exists")
     }
     
   } catch (e) {
@@ -54,8 +54,10 @@ router.post("/", async (req, res) => {
       ) {
         try {
           const newbudget = await budgetData.addBudget(
+            userId,
             amount,
-            category    
+            category  
+
           );
           await userData.addBudgetToUser(userId, String(newbudget._id));
           res.json(newbudget);
@@ -85,4 +87,39 @@ router.post("/", async (req, res) => {
       res.status(500).send({ error: e });
     }
   });
+
+  router.patch("/", async (req, res) => {
+    const requestBody = req.body;
+    let oldBudget = {};
+    let updatedBudget = {};
+    try {
+      oldBudget = await budgetData.getBudgetById(req.body.id);
+    }catch (e) {
+      res.status(404).json({ error: 'Budget not found' });
+      return;
+    }
+
+    try {
+      if(requestBody.amount && requestBody.amount !== oldBudget.amount) {
+        updatedBudget.amount = requestBody.amount;
+      }
+      if(requestBody.category && requestBody.category !== oldBudget.category) {
+        updatedBudget.category = requestBody.category;
+      }
+      if(!requestBody.amount && !requestBody.category) {
+        throw `Wrong details provided for updating budget`;
+      }
+    } catch (e) {
+      res.status(400).json({ error: 'Budget details error' });
+      return;
+    }
+
+    try {
+      const updatedBudgetEntry = await budgetData.updatedBudget(req.body.id, updatedBudget);
+      res.json(updatedBudgetEntry);
+    } catch (e) {
+      res.status(500).json({ error: e });
+    }
+  });
+
   module.exports = router;

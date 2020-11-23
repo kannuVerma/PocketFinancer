@@ -41,6 +41,7 @@ module.exports = {
         return allBudgets;
       },
     async addBudget(
+        userId,
         amount,
         category
       ) {
@@ -49,17 +50,38 @@ module.exports = {
         if (!category) throw `You must provide cateogory`;
         if (amount) {
           if (typeof amount != "number") throw `Please give a valid number`;
-        }       
+        }  
+        const userIdBudgets = await this.getUserAllBudgets(userId);
+
+
+        const budgetInfo = userIdBudgets.filter (element => {
+          return (element.category === category)
+        })
         const budgetCollection = await budgets();   
-        let newbudget = {
+        if(budgetInfo.length > 0){
+          let newbudget = {
             amount: amount,  
-            category: category       
+            category: category,
+            // _id: budgetInfo[0]._id     
           }; 
-        const insertInfo = await budgetCollection.insertOne(newbudget);
-        if (insertInfo.insertedCount === 0) throw `Could not add User`;    
-        const newId = insertInfo.insertedId;
-        const budget = await this.getBudgetById(newId);
-        return budget;
+          const updatedInfo = await budgetCollection.updateOne({_id: budgetInfo[0]._id  }, {$set: newbudget});
+          
+          if (updatedInfo.modifiedCount === 0) throw `Could not update`;          
+          const budget = await this.getBudgetById(budgetInfo[0]._id);
+          return budget;
+        }else{
+          
+          let newbudget = {
+              amount: amount,  
+              category: category       
+            }; 
+          const insertInfo = await budgetCollection.insertOne(newbudget);
+          if (insertInfo.insertedCount === 0) throw `Could not update`;    
+          const newId = insertInfo.insertedId;
+          const budget = await this.getBudgetById(newId);
+          return budget;
+        }
+        
       },
       async deleteBudget(
         userId, budgetId
@@ -85,5 +107,40 @@ module.exports = {
           throw `could not delete the budget from users table`;
         }
         return budgeIdString;
+      },
+      async updatedBudget(
+        budgetId, updatedBudget
+      ) {
+          const budgetCollection = await budgets();
+          const updatedBudgetData = {};
+
+          if(typeof(budgetId) != "string" && typeof(budgetId) != "object")
+            throw 'Wrong input';
+
+          if (typeof(budgetId) == "string") {
+            budgetId = ObjectId.createFromHexString(budgetId);
+          }
+          const toEditBudget = await this.getBudgetById(budgetId);
+          if(toEditBudget === null) throw 'No budget found';
+
+          if(updatedBudget.category) {
+            if(typeof(updatedBudget.category) != "string")
+              throw 'Wrong input type';
+            updatedBudgetData.category = updatedBudget.category;
+          }
+
+          if(updatedBudget.amount) {
+            if(typeof(updatedBudget.amount) != "number")
+              throw 'Wrong input type';
+            updatedBudgetData.amount = updatedBudget.amount;
+          }
+
+          const updatedInfo = await budgetCollection.updateOne({_id: budgetId}, {$set: updatedBudgetData});
+        if (updatedInfo.modifiedCount === 0) {
+        throw 'could not update band successfully';
+        }
+
+        return await this.getBudgetById(budgetId);
+          
       }
 };
