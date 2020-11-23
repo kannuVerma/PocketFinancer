@@ -39,7 +39,6 @@ const inputsPassword = (e) =>{
     /*.then(r => {
         console.log(r)
         if(r.status === 200){
-            console.log("right credentials")
             window.location = "/landing"    
         }else if(r.status === 401){
             alert("Email or Password is wrong \n Please try again")

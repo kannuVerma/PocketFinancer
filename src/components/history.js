@@ -94,7 +94,6 @@ export const History = (props) => {
           body: JSON.stringify(addNewTransaction),
         }).then(r => {
           if(r.status === 200){
-            console.log(r)
             setedit1(r)
             props.editsuccess(r);
             setIsOpen(false)

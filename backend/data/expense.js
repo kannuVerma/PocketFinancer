@@ -57,7 +57,7 @@ module.exports = {
             throw { errocode: 400, field: "Please add description" };
         }
         const expenseCollection = await expenses();  
-        // console.log(req.session.user) 
+
         let newExpense = {
             date: date,
             amount: amount,  
@@ -76,7 +76,6 @@ module.exports = {
         userId, expenseId
       ) {
         if(!expenseId) throw `No expense id given to be deleted`;
-        console.log(userId , expenseId , "jay")
         // const expense = await this.getExpenseById(expenseId);
         const expenseIdString = expenseId;
         if (typeof expenseId == "string") {
@@ -88,7 +87,7 @@ module.exports = {
 
         const userCollection = await users();
         const updateExpense = {expenseIds:  expenseIdString};
-        console.log("Expense id to be deleted", expenseId);
+
         const updatedInfo = await userCollection.updateOne(
           { _id: ObjectId.createFromHexString(userId) },
           { $pull: updateExpense }

@@ -22,7 +22,6 @@ export const Budget = (props) => {
           body: JSON.stringify(addNewBudget),
         }).then(r => {
           if(r.status === 200){
-            console.log(r)
             props.budgetsuccess(r);
           }
         })

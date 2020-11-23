@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 router.get("/", async (req, res) => {
   // if logged in, redirect to user's profile
   if (req.session && req.session.user) {
-    console.log("why i am i here");
+
     res.status(406).send({ error: "Already logged in" });
   } else {
     res.render("users/login", {
@@ -39,7 +39,6 @@ router.post("/", async (req, res) => {
         const hour = 3600000;
         req.session.cookie.maxAge = hour;
         req.session.user = newUser;
-        console.log( "Session : " + req.session );
         res.json(newUser);
       } 
       else {
