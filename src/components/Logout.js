@@ -12,7 +12,6 @@ const Logout = (props) => {
         //not sure
     }).then(r => {console.log(r)
         if(r.status === 200){
-            console.log("right credentials")
             window.location = "/login"    
         }else if(r.status === 401){
             alert("Something went wrong")

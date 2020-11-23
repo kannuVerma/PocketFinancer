@@ -27,7 +27,6 @@ export const AddNewTransaction = (props) => {
           body: JSON.stringify(addNewTransaction),
         }).then(r => {
           if(r.status === 200){
-            console.log(r)
             props.transactionsuccess(r);
           }
         })

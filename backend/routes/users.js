@@ -24,8 +24,6 @@ const userData = data.users;
   
 
   router.post("/", async (req, res) => {
-    // console.log(req)
-    console.log(req.body)
     const userPostData = req.body;
 
     try {

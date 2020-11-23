@@ -14,7 +14,7 @@ router.get("/:id", async (req, res) => {
       const expensesMonth = expenseList.filter(expense =>{
           const date = expense.date
           const dateArr = date.split("-");
-          console.log( today.getFullYear() + " : " + today.getMonth());
+
           if(dateArr[0] === today.getFullYear().toString() && dateArr[1] === (today.getMonth() + 1).toString()){
               return true;
           }else{
@@ -22,11 +22,11 @@ router.get("/:id", async (req, res) => {
           }
       })
      const expensesByCateogory =  _.groupBy(expensesMonth, "category");
-     console.log(expensesByCateogory)
+
 
      let categoryExpenseList = 
      Object.keys(expensesByCateogory).map(element => {
-         console.log(expensesByCateogory);
+
          const amount = expensesByCateogory[element].reduce(
             function (acc, obj) { return acc + obj.amount; }, 0
          )
@@ -41,7 +41,7 @@ router.get("/:id", async (req, res) => {
              category: element,
              budgetAmount: budgetAmount
          };
-         //console.log(amount);
+
      });
       if(categoryExpenseList){
         res.json(categoryExpenseList);

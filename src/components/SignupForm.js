@@ -39,7 +39,7 @@ const inputsPassword = (e) =>{
           "Accept-Charset": "utf-8"
       },
         body: JSON.stringify(user),
-    }).then(r => {console.log(r)
+    }).then(r => {
       if(r.status === 200){
         alert("Signup successfull");
         window.location = "/login"    
