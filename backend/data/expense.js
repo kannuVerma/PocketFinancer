@@ -97,5 +97,52 @@ module.exports = {
           throw `could not delete the expense from users table`;
         }
         return expenseIdString;
+      },
+      async updatedExpense(
+        expenseId, updatedExpense
+      ) {
+          const expenseCollection = await expenses();
+          const updatedExpenseData = {};
+
+          if(typeof(expenseId) != "string" && typeof(expenseId) != "object")
+            throw 'Wrong input';
+
+          if (typeof(expenseId) == "string") {
+            expenseId = ObjectId.createFromHexString(expenseId);
+          }
+          const toEditExpense = await this.getExpenseById(expenseId);
+          if(toEditExpense === null) throw 'No expense found';
+
+          if(updatedExpense.desc) {
+            if(typeof(updatedExpense.desc) != "string")
+              throw 'Wrong input type';
+            updatedExpenseData.desc = updatedExpense.desc;
+          }
+
+          if(updatedExpense.category) {
+            if(typeof(updatedExpense.category) != "string")
+              throw 'Wrong input type';
+            updatedExpenseData.category = updatedExpense.category;
+          }
+
+          if(updatedExpense.date) {
+            if(typeof(updatedExpense.date) != "string")
+              throw 'Wrong input type';
+            updatedExpenseData.date = updatedExpense.date;
+          }
+
+          if(updatedExpense.amount) {
+            if(typeof(updatedExpense.amount) != "number")
+              throw 'Wrong input type';
+            updatedExpenseData.amount = updatedExpense.amount;
+          }
+
+          const updatedInfo = await expenseCollection.updateOne({_id: expenseId}, {$set: updatedExpenseData});
+        if (updatedInfo.modifiedCount === 0) {
+        throw 'could not update band successfully';
+        }
+
+        return await this.getExpenseById(expenseId);
+          
       }
 };
