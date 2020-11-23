@@ -21,14 +21,14 @@ export const Incompence = (props) => {
         }
         fetchData();
     },
-    [props.transactionSuccess, props.deletedIdSuccess]
+    [props.transactionSuccess, props.deletedIdSuccess , props.editSuccess]
     )
 
     return (
     <div>
         <div  class = "container1">        
             <h4>Expence</h4>
-    <p className = 'expence-color'> {expense}</p>
+    <p className = 'expence-color'>${expense}</p>
         </div>
 
     </div>
