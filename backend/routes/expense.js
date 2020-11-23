@@ -18,6 +18,20 @@ router.get("/:id", async (req, res) => {
       res.status(500).send({ error: e });
     }
   });
+  router.get("/expense/:id", async (req, res) => {
+    try {
+      const expense = await expenseData.getExpenseById(req.params.id);
+      if(expense){
+        res.json(expense);
+      }else{
+          res.send("No expense data exists")
+      }
+      
+    } catch (e) {
+      // Something went wrong with the server!
+      res.status(500).send({ error: e });
+    }
+  });
 
 
 router.post("/", async (req, res) => {
