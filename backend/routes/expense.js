@@ -4,7 +4,6 @@ const data = require("../data");
 const expenseData = data.expense;
 const userData = data.users;
 
-
 router.get("/:id", async (req, res) => {
     try {
       const expenseList = await expenseData.getUserAllExpenses(req.params.id);

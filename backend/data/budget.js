@@ -30,7 +30,9 @@ module.exports = {
         const userCollection = await users();
         let user = await userCollection.findOne({ _id: userId })
         let allBudgets = [] ;
-
+        if( user.budgetIds === undefined){
+          user.budgetIds = [];
+        }
         
         allBudgets = await Promise.all( user.budgetIds.map(async budget => {
           return await this.getBudgetById(budget);
