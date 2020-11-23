@@ -54,8 +54,10 @@ router.post("/", async (req, res) => {
       ) {
         try {
           const newbudget = await budgetData.addBudget(
+            userId,
             amount,
-            category    
+            category  
+
           );
           await userData.addBudgetToUser(userId, String(newbudget._id));
           res.json(newbudget);

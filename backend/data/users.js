@@ -50,7 +50,7 @@ module.exports = {
     
     const updatedInfo = await userCollection.updateOne(
       { _id: userId },
-      { $push: updateExpense }
+      { $addToSet: updateExpense }
     );
     if (updatedInfo.modifiedCount === 0) {
       throw `could not update`;
@@ -68,7 +68,7 @@ module.exports = {
     
     const updatedInfo = await userCollection.updateOne(
       { _id: userId },
-      { $push: updateBudget }
+      { $addToSet: updateBudget }
     );
     if (updatedInfo.modifiedCount === 0) {
       throw `could not update`;
