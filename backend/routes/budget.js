@@ -20,6 +20,20 @@ router.get("/:id", async (req, res) => {
     res.status(500).send({ error: e });
   }
 });
+router.get("/budget/:id", async (req, res) => {
+  try {
+    const budget = await budgetData.getBudgetById(req.params.id);
+    if(budget){
+      res.json(budget);
+    }else{
+        res.send("No expense data exists")
+    }
+    
+  } catch (e) {
+    // Something went wrong with the server!
+    res.status(500).send({ error: e });
+  }
+});
 
 router.post("/", async (req, res) => {
     const budgetPostData = req.body;
