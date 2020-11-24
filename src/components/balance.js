@@ -55,4 +55,3 @@ export const Balance = (props) => {
     </div>
     )
 }
-export default Balance;
