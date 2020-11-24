@@ -26,13 +26,13 @@ export const Balance = (props) => {
 
     return (
     <div>
-        <h3>Differences</h3>
+        <h3>Budget Metrics</h3>
         <table>
             <tr>
                 <th>Amount</th>
                 <th>Category</th>
                 <th>Budget Amount</th>
-                <th>Difference</th>
+                <th>Remaining Budget</th>
             </tr>
             {details.map((trans,i) => {
                         return <tr> 
