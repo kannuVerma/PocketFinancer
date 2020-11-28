@@ -48,23 +48,33 @@ const inputsPassword = (e) =>{
 	return (
 
     <form onSubmit = { handleSubmit }>  
+    <h3>Sign In</h3>
+    <div className="form-group">
+    <label>Email address</label>
     <input
+      className="form-control"
       value={email}
       onChange={inputsEmail}
-      placeholder="Email address"
+      placeholder="Enter email"
       type="email"
       name="email"
       
     />
+    </div>
+
+    <div className="form-group">
+    <label>Password</label>
     <input
+      className="form-control"
       value={password}
       onChange={inputsPassword}
-      placeholder="Password"
+      placeholder="Enter Password"
       type="password"
       name="password"
       
     />
-    <button type="submit">Submit</button>
+    </div>
+    <button type="submit" className="btn btn-primary btn-block">Submit</button>
   </form>
 
 	);

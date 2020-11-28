@@ -47,7 +47,7 @@ export const Budget = (props) => {
                 <option value="Other">Other</option>
             </select>
         </div>
-        <button>Add Budget Category</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Budget Category</button>
       </form>
     </div>
     )
