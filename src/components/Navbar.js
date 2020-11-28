@@ -10,13 +10,13 @@ export function Navbar() {
             </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/budget">Budget</a>
-            <a class="nav-item nav-link" href="/balance">Balance</a>
+            {/* <a class="nav-item nav-link" href="/budget">Budget</a>
+            <a class="nav-item nav-link" href="/balance">Balance</a> */}
             <a class="nav-item nav-link" href="/BudgetTracker">BudgetTracker</a>
-            <a class="nav-item nav-link" href="/ChartComponent">Chart</a>
+            {/* <a class="nav-item nav-link" href="/ChartComponent">Chart</a> */}
             <a class="nav-item nav-link" href="/history">History</a>
             <a class="nav-item nav-link" href="/addnewtransaction">Add Transactions</a>
-            <a class="nav-item nav-link" href="/incompence">Incompence</a>
+            {/* <a class="nav-item nav-link" href="/incompence">Incompence</a> */}
             </div>
         </div>
                 <a className="nav-link" href='/Login'>Login</a>

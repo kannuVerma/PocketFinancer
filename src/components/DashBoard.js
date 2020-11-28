@@ -1,28 +1,29 @@
 import * as React from 'react';
+import './DashBoard.css';
 
-import {Header} from './header'
+// import {Header} from './header'
 import {Balance} from './balance'
 import {Incompence} from './incompence'
-import {AddNewTransaction} from './addnewtransaction'
-import {History} from './history'
+// import {AddNewTransaction} from './addnewtransaction'
+// import {History} from './history'
 import {Budget} from './budget'
-import {BudgetTracker} from './BudgetTracker'
+//import {BudgetTracker} from './BudgetTracker'
 import {ChartComponent} from './ChartComponent'
 
 export function DashBoard() {
     return (
         <div className="panels">
             <div className="panel-info">
-                <Balance />
+                <ChartComponent />
             </div>
             <div className="panel-allocation">
                 <Budget />
             </div>
             <div className="panel-balance">
-                <Incompence />
+                <Balance />
             </div>
             <div className="panel-positions">
-                <AddNewTransaction />
+                <Incompence />
             </div>
             </div>
     );
