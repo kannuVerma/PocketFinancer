@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Landing from './components/Landing';
 
 import { Navbar } from './components/Navbar';
+import { DashBoard } from './components/DashBoard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Balance } from './components/balance';
 import { Budget } from './components/budget';
@@ -23,24 +24,24 @@ const App = () => {
 		<Router>
     
 
-	{/* <div className='App'>
+	<div className='App'>
 				<header className='App-header'>
 					<h1 className='App-title'>Welcome to PocketFinancer</h1>					
 				</header>
 				<br />
 				<br />
-			<div className='App'> */}
+			<div className='App'>
 			<Navbar />
 			<div className="auth-wrapper">
         	<div className="auth-inner">
         	<Switch>
 					
-					<Route exact path='/' component={Login} />	
+					{/* <Route exact path='/' component={Login} />	 */}
+					<Route exact path="/" component={DashBoard}/>
 					<Route exact path='/signup' component={Signup} />
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/landing/:id' component={Landing} />
 
-					{/* <Route exact path="/"><Home /></Route> */}
 					<Route exact path="/ChartComponent" component={ChartComponent} />
 					<Route exact path="/History" component={History} />
 					<Route exact path="/addnewtransaction" component={AddNewTransaction} />
@@ -51,8 +52,8 @@ const App = () => {
             </Switch>
 			</div>
 			</div>
-			{/* </div>
-			</div>     */}
+			</div>
+			</div>    
 		</Router>
 	);
 };
