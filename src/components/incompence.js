@@ -27,7 +27,7 @@ export const Incompence = (props) => {
     return (
     <div>
         <div  class = "container1">        
-            <h4>Expence</h4>
+            <h4>Expense</h4>
     <p className = 'expence-color'>${expense}</p>
         </div>
 

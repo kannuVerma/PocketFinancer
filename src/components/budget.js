@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import '../App.css';
 export const Budget = (props) => {
     const [amount,setAmount] = useState(0);
     const [category, setCategory] = useState('Entertainment');
@@ -29,7 +29,7 @@ export const Budget = (props) => {
 
     return (        
     <div>
-        <h3>Add Budget</h3>
+        <h5>Budget</h5>
       <form onSubmit = {submit}>
         <div>
           <label for="amount">Amount: </label>

@@ -34,10 +34,10 @@ export const AddNewTransaction = (props) => {
     }
     return (        
     <div>
-        <h3>Add new transaction</h3>
+        <h5> Transaction</h5>
       <form onSubmit = {submit}>
         <div>
-          <label for="expense">Expense: </label>
+          <label for="expense">Desc: </label>
           <input type="expense" value = {expense} onChange={(e) => setExpense(e.target.value)} placeholder="Enter Expense" />
         </div>
         <div>

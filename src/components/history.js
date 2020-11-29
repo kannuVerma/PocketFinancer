@@ -104,7 +104,7 @@ export const History = (props) => {
 
     return (
     <div>
-        <h3>Transaction History</h3>
+        <h5>Transaction History</h5>
         <table>
             <tr>
                 <th>Expense</th>

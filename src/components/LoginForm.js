@@ -46,7 +46,8 @@ const inputsPassword = (e) =>{
       }).catch(e => console.log(e));*/
   }
 	return (
-
+<div className="login-wrapper">
+        	<div className="login-inner">
     <form onSubmit = { handleSubmit }>  
     <h3>Sign In</h3>
     <div className="form-group">
@@ -75,8 +76,14 @@ const inputsPassword = (e) =>{
     />
     </div>
     <button type="submit" className="btn btn-primary btn-block">Submit</button>
-  </form>
 
+
+    <p className="dont-have-account text-right">
+                    Don't have account? Click here to <a href='/signup'>signup</a>
+                </p>
+  </form>
+</div>
+</div>
 	);
 };
 export default LoginForm;

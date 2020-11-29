@@ -3,7 +3,7 @@ import React, {  useEffect, useState } from 'react'
 
 import DonutChart from 'react-donut-chart';
 import { Chart } from "react-google-charts";
-
+import '../charts.css'
 
 export const ChartComponent = (props) => {
     const [expenseData,setexpenseData] = useState([]);
@@ -15,19 +15,17 @@ export const ChartComponent = (props) => {
         async function fetchData() {
             try {
                 console.log(props.details)
-                const edata = props.details.map( detail =>{
-                    return {
-                        label : detail.category,
-                        value : detail.amount
-                    }
+                let edata = props.details.map( detail =>{
+                    return [  detail.category,
+                        detail.amount]               
                 }) 
+               edata.unshift(["expesne", "expense amount"])
                 setexpenseData(edata);
                 const bdata = props.details.map( detail =>{
-                    return {
-                        label : detail.category,
-                        value : detail.budgetAmount
-                    }
+                    return [ detail.category, detail.budgetAmount ]
+                    
                 }) 
+                bdata.unshift(["budget", "budge amount"])
                 setbudgetData(bdata);
                 let bcdata = props.details.map( detail =>{
                     return [
@@ -50,21 +48,51 @@ export const ChartComponent = (props) => {
     },
     [props.details]
     )
-    const diff = (a,b) =>{
-        return b-a;
-    }
+    const options = {
 
+        
+        pieHole: 0.4,
+        is3D: true,
+        legend: {position: 'bottom'},
+        
+
+      };
+     
     return (
         <div>
-            <br/>
-            <p> Expense Data</p>
-            <DonutChart data={expenseData} /> 
-            <br/>
-            <p> Budget Data</p>
-            <DonutChart data={budgetData} />  
-
-
-            <Chart
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Budget Data</h5>
+                        <div class="card-text">
+                            <Chart
+                                chartType="PieChart"
+                                width="100%"
+                                height="400px"
+                                data={budgetData}
+                                options={options}
+                            />
+                        </div>
+                    </div>        
+              </div>
+              
+              <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Expense Data</h5>
+                    <div class="card-text"> <Chart
+                                chartType="PieChart"
+                                width="100%"
+                                height="400px"
+                                data={expenseData}
+                                
+                                options={options}
+                            /> </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-text"> 
+                  <Chart
                 width={'500px'}
                 height={'300px'}
                 chartType="Bar"
@@ -78,7 +106,12 @@ export const ChartComponent = (props) => {
                             },
                     }} 
             />  
-        </div>   
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+         </div>   
         
         
 
