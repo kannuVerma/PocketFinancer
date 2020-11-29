@@ -1,14 +1,14 @@
 import * as React from 'react';
 import './DashBoard.css';
 
-// import {Header} from './header'
+import {ChartComponent} from './ChartComponent'
 import {Balance} from './balance'
 import {Incompence} from './incompence'
+import {Budget} from './budget'
 // import {AddNewTransaction} from './addnewtransaction'
 // import {History} from './history'
-import {Budget} from './budget'
 //import {BudgetTracker} from './BudgetTracker'
-import {ChartComponent} from './ChartComponent'
+
 
 export function DashBoard() {
     return (
