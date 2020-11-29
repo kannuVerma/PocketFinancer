@@ -31,13 +31,16 @@ export const Budget = (props) => {
     <div>
         <h5>Budget</h5>
       <form onSubmit = {submit}>
-        <div>
-          <label for="amount">Amount: </label>
-          <input type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"  for="amountid">Amount </label>
+          <div class="col-sm-10">
+          <input type="number" class="form-control" id="amountid" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
+          </div>
         </div>
-        <div>
-            <label for="category">Category:</label>
-            <select value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="category">Category</label>
+            <div class="col-sm-10">
+            <select class="form-control" value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
                 <option value="Entertainment">Entertainment</option>
                 <option value="Food and Drinks">Food and Drinks</option>
                 <option value="Home">Home</option>
@@ -46,6 +49,7 @@ export const Budget = (props) => {
                 <option value="Life">Life</option>
                 <option value="Other">Other</option>
             </select>
+            </div>
         </div>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Budget Category</button>
       </form>
