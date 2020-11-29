@@ -105,7 +105,8 @@ export const History = (props) => {
     return (
     <div>
         <h5>Transaction History</h5>
-        <table>
+        <table class="table table-striped">
+        <thead>
             <tr>
                 <th>Expense</th>
                 <th>Amount</th>
@@ -114,6 +115,8 @@ export const History = (props) => {
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
+        </thead>
+        <tbody>
             {expense.map((trans,i) => {
                         return <tr> 
                                 <td>
@@ -167,6 +170,7 @@ export const History = (props) => {
                                 </td>
                             </tr>;
         })}
+        </tbody> 
         </table>
     </div>
     )

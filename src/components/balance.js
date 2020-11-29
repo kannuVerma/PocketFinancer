@@ -27,13 +27,16 @@ export const Balance = (props) => {
     return (
     <div>
         <h5>Budget Metrics</h5>
-        <table>
+        <table class="table table-striped">
+        <thead>
             <tr>
-                <th>Amount</th>
-                <th>Category</th>
-                <th>Budget Amount</th>
-                <th>Remaining Budget</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Category</th>
+                <th scope="col">Budget Amount</th>
+                <th scope="col">Remaining Budget</th>
             </tr>
+            </thead>
+            <tbody>
             {details.map((trans,i) => {
                         return <tr> 
                                 <td>
@@ -50,6 +53,7 @@ export const Balance = (props) => {
                                 </td>
                             </tr>;
         })}
+        </tbody>
         </table>
 
     </div>
