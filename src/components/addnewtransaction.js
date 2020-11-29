@@ -36,17 +36,22 @@ export const AddNewTransaction = (props) => {
     <div>
         <h5> Transaction</h5>
       <form onSubmit = {submit}>
-        <div>
-          <label for="expense">Desc: </label>
-          <input type="expense" value = {expense} onChange={(e) => setExpense(e.target.value)} placeholder="Enter Expense" />
+        <div class="form-group row">  
+          <label class="col-sm-2 col-form-label" for="expense">Title </label>
+          <div class="col-sm-10">
+            <input class="form-control" type="expense" value = {expense} onChange={(e) => setExpense(e.target.value)} placeholder="Enter Expense" />
+            </div>
+          </div>
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label" for="amount">Amount </label>
+          <div class="col-sm-10">
+          <input class="form-control" type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
         </div>
-        <div>
-          <label for="amount">Amount: </label>
-          <input type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
         </div>
-        <div>
-            <label for="category">Category:</label>
-            <select value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="category">Category </label>
+            <div class="col-sm-10">
+              <select class="form-control" value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
                 <option value="Entertainment">Entertainment</option>
                 <option value="Food and Drinks">Food and Drinks</option>
                 <option value="Home">Home</option>
@@ -55,12 +60,15 @@ export const AddNewTransaction = (props) => {
                 <option value="Life">Life</option>
                 <option value="Other">Other</option>
             </select>
+            </div>
         </div>
-        <div>
-            <label for="date">Date:</label>
-            <input type="date" value = {date} onChange={(e) => setDate(e.target.value)} name="date" />
-        </div>
-        <button>Add transaction</button>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="date">Date </label>
+            <div class="col-sm-10">
+            <input class="form-control" type="date" value = {date} onChange={(e) => setDate(e.target.value)} name="date" />
+          </div>
+          </div>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add transaction</button>
       </form>
     </div>
     )
