@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
     if (email && password) {
       const newUser = await userData.getUserByEmail(userPostData.email);
       if (newUser == null) {
-        res.json(newUser);
+        res.status(401).send({ error: "Email or password is wrong" });
         return;
       }
       const passwordMatch = await bcrypt.compare(
@@ -49,6 +49,7 @@ router.post("/", async (req, res) => {
         // });
         // return;
         res.status(401).send({ error: "Email or password is wrong" });
+        return
       }
     } else {
       res.status(400).send({ error: "Bad Request" });

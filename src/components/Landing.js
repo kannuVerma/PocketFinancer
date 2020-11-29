@@ -42,7 +42,7 @@ function Landing(props) {
         <div>
           <Header />
 
-
+          
           <div class="card-deck">
             <div class="card">
               <div class="card-body">
@@ -87,7 +87,7 @@ function Landing(props) {
           <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  deletesuccess  = {deletesuccess} editsuccess = {editsuccess} /> */}
           <ChartComponent details = {details}/>
           
-            <a href='/login'>Logout</a>
+            
  		</div>
   );
 }
