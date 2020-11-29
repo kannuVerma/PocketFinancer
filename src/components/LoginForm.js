@@ -29,21 +29,32 @@ const inputsPassword = (e) =>{
     
         body: JSON.stringify(credentials),
     }).then(response => {
+    //   if(response.status === 200){
+    //     window.location = "/landing"    
+    // }
+     if(response.status === 401){
+        alert("Email or Password is wrong \nPlease try again")
+    } else{
       return response.json()
-      
+      // window.location = "/landing/" + response.json()._id
+    }
+          
     })
     .then(data => {
-      console.log(data)
+      if(data._id === undefined){
+        alert("Email or Password is wrong \nPlease try again")
+        return
+      }
       window.location = "/landing/" + data._id
-    });
-    /*.then(r => {
-        console.log(r)
-        if(r.status === 200){
-            window.location = "/landing"    
-        }else if(r.status === 401){
-            alert("Email or Password is wrong \n Please try again")
-        } 
-      }).catch(e => console.log(e));*/
+    }).catch(e => console.log(e));;
+    // .then(r => {
+    //     console.log(r)
+    //     if(r.status === 200){
+    //         window.location = "/landing"    
+    //     }else if(r.status === 401){
+    //         alert("Email or Password is wrong \n Please try again")
+    //     } 
+    //   })
   }
 	return (
 <div className="login-wrapper">
