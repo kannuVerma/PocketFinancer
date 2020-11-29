@@ -4,13 +4,19 @@ import axios from 'axios'
 import Modal from 'react-modal';
 const customStyles = {
     content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
-    }
+        top: '40px',
+        left: '40px',
+        right: '40px',
+        bottom: '40px',
+      position: 'absolute'
+    },
+    Overlay: {
+        top: '0',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        position: 'fixed'
+      }
   };
 
 
@@ -97,6 +103,10 @@ export const History = (props) => {
             setedit1(r)
             props.editsuccess(r);
             setIsOpen(false)
+            setExpense1('')
+            setCategory('')
+            setAmount(0)
+            setDate('')
           }
         })
 
@@ -105,7 +115,7 @@ export const History = (props) => {
     return (
     <div>
         <h5>Transaction History</h5>
-        <table class="table table-striped">
+        <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Expense</th>
@@ -132,21 +142,29 @@ export const History = (props) => {
                                     {trans.date}    
                                 </td>
                                 <td>
-                                    <button id="myBtn" onClick={() => editTransaction(trans._id)} >Edit</button>
+                                    <button class="btn btn-default btn-sm" id="myBtn" onClick={() => editTransaction(trans._id)} > <i class="glyphicon glyphicon-pencil"></i>Edit</button>
                                     <Modal isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
-                                        
+                                    <button type="button" class="close" style={{color: "red"}}  onClick={closeModal} aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <br></br><br></br><br></br>
                                         <form onSubmit = {submit}>
-                                            <div>
-                                            <label for="expense">Expense: </label>
-                                            <input type="expense" value = {expense1} onChange={(e) => setExpense1(e.target.value)} placeholder="Enter Expense" />
+                                            <div class="form-group row">
+                                            <label  class="col-sm-2 col-form-label" for="expense">Expense </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="expense" value = {expense1} onChange={(e) => setExpense1(e.target.value)} placeholder="Enter Expense" />
                                             </div>
-                                            <div>
-                                            <label for="amount">Amount: </label>
-                                            <input type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
                                             </div>
-                                            <div>
-                                                <label for="category">Category:</label>
-                                                <select value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
+                                            <div class="form-group row">
+                                            <label   class="col-sm-2 col-form-label" for="amount">Amount </label>
+                                            <div class="col-sm-10">
+                                            <input class="form-control" type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
+                                            </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label  class="col-sm-2 col-form-label" for="category">Category</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
                                                     <option value="Entertainment">Entertainment</option>
                                                     <option value="Food and Drinks">Food and Drinks</option>
                                                     <option value="Home">Home</option>
@@ -156,17 +174,20 @@ export const History = (props) => {
                                                     <option value="Other">Other</option>
                                                 </select>
                                             </div>
-                                            <div>
-                                                <label for="date">Date:</label>
-                                                <input type="date" value = {date} onChange={(e) => setDate(e.target.value)} name="date" />
                                             </div>
-                                            <button>Update</button>
+                                            <div class="form-group row">
+                                                <label  class="col-sm-2 col-form-label" for="date">Date</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" type="date" value = {date} onChange={(e) => setDate(e.target.value)} name="date" />
+                                            </div>
+                                            </div>
+                                            <button class="btn btn-outline-success my-2 my-sm-0" >Update</button>
                                         </form>
-                                        <button onClick={closeModal}>X</button>
+                                       
                                     </Modal>
                                 </td>
                                 <td>
-                                    <button onClick={() => deleteTransaction(trans._id)} >X</button>
+                                    <button class="btn btn-link" style={{color: "red"}} onClick={() => deleteTransaction(trans._id)} >X</button>
                                 </td>
                             </tr>;
         })}
