@@ -9,7 +9,7 @@ import {BudgetTracker} from './BudgetTracker'
 import {ChartComponent} from './ChartComponent'
 
 
-import '../App.css'
+//import '../App.css'
 
 function Landing(props) {
   const [transactionSuccess, settransactionsuccess] = useState(undefined);
@@ -41,12 +41,50 @@ function Landing(props) {
   return (
         <div>
           <Header />
-          <BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess} deletesuccessbudget = {deletesuccessbudget} />
+
+
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-text"><Budget id = {props.match.params.id} budgetsuccess = {budgetsuccess} /></div>        
+              </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-text"> <AddNewTransaction  id = {props.match.params.id} transactionsuccess = {transactionsuccess}/> </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-text"> <Incompence id = {props.match.params.id} transactionSuccess = {transactionSuccess} deletedIdSuccess = {deletedIdSuccess} editSuccess = {editSuccess}/></div>
+                </div>
+              </div>
+            </div>
+            <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-text"><BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess} deletesuccessbudget = {deletesuccessbudget} /></div>        
+              </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-text"> <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  deletesuccess  = {deletesuccess} editsuccess = {editsuccess} /> </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-text"> <Balance id = {props.match.params.id} editdetails = {editdetails} budgetSuccess = {budgetSuccess} deletebudgetSuccess = {deletebudgetSuccess} transactionSuccess = {transactionSuccess}/></div>
+                </div>
+              </div>
+            </div>
+
+          
+          {/* <BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess} deletesuccessbudget = {deletesuccessbudget} />
           <Budget id = {props.match.params.id} budgetsuccess = {budgetsuccess} />
           <Balance id = {props.match.params.id} editdetails = {editdetails} budgetSuccess = {budgetSuccess} deletebudgetSuccess = {deletebudgetSuccess} transactionSuccess = {transactionSuccess}/>
           <Incompence id = {props.match.params.id} transactionSuccess = {transactionSuccess} deletedIdSuccess = {deletedIdSuccess} editSuccess = {editSuccess}/>
           <AddNewTransaction  id = {props.match.params.id} transactionsuccess = {transactionsuccess}/> 
-          <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  deletesuccess  = {deletesuccess} editsuccess = {editsuccess} />
+          <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  deletesuccess  = {deletesuccess} editsuccess = {editsuccess} /> */}
           <ChartComponent details = {details}/>
           
             <a href='/login'>Logout</a>

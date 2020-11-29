@@ -57,7 +57,11 @@ const inputsPassword = (e) =>{
 	return (
 
     <form onSubmit = { handleSubmit }>
+    <h3>Sign Up</h3>
+    <div className="form-group">
+    <label>First name</label>
     <input
+      className="form-control"
       value={firstName}
       onChange={inputsFirstname}
       placeholder="First name"
@@ -65,7 +69,11 @@ const inputsPassword = (e) =>{
       name="firstName"
       
     />
+    </div>
+    <div className="form-group">
+    <label>Last name</label>
     <input
+      className="form-control"
       value={lastName}
       onChange={inputsLastname}
       placeholder="Last name"
@@ -73,7 +81,11 @@ const inputsPassword = (e) =>{
       name="lastName"
       
     />
+    </div>
+    <div className="form-group">
+    <label>Email address</label>
     <input
+      className="form-control"
       value={email}
       onChange={inputsEmail}
       placeholder="Email address"
@@ -81,16 +93,22 @@ const inputsPassword = (e) =>{
       name="email"
       
     />
+    </div>
+    <div className="form-group">
+    <label>Email address</label>
     <input
+      className="form-control"
       value={password}
       onChange={inputsPassword}
       placeholder="Password"
       type="password"
       name="password"
-      
     />
-    <button type="submit">Submit</button>
-    <a href='/login'>Click here to login</a>
+    </div>
+    <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+    <p className="forgot-password text-right">
+      Already registered? Click here to <a href="/Login">Login</a>
+    </p>
   </form>
 
 	);

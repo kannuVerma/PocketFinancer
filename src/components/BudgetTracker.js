@@ -40,7 +40,7 @@ export const BudgetTracker = (props) => {
 
     return (
     <div>
-        <h3>Budget List</h3>
+        <h5>Budget List</h5>
         <table>
             <tr>
                 <th>Category</th>

@@ -26,7 +26,7 @@ export const Balance = (props) => {
 
     return (
     <div>
-        <h3>Budget Metrics</h3>
+        <h5>Budget Metrics</h5>
         <table>
             <tr>
                 <th>Amount</th>

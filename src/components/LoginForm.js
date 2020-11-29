@@ -46,27 +46,44 @@ const inputsPassword = (e) =>{
       }).catch(e => console.log(e));*/
   }
 	return (
-
+<div className="login-wrapper">
+        	<div className="login-inner">
     <form onSubmit = { handleSubmit }>  
+    <h3>Sign In</h3>
+    <div className="form-group">
+    <label>Email address</label>
     <input
+      className="form-control"
       value={email}
       onChange={inputsEmail}
-      placeholder="Email address"
+      placeholder="Enter email"
       type="email"
       name="email"
       
     />
+    </div>
+
+    <div className="form-group">
+    <label>Password</label>
     <input
+      className="form-control"
       value={password}
       onChange={inputsPassword}
-      placeholder="Password"
+      placeholder="Enter Password"
       type="password"
       name="password"
       
     />
-    <button type="submit">Submit</button>
-  </form>
+    </div>
+    <button type="submit" className="btn btn-primary btn-block">Submit</button>
 
+
+    <p className="dont-have-account text-right">
+                    Don't have account? Click here to <a href='/signup'>signup</a>
+                </p>
+  </form>
+</div>
+</div>
 	);
 };
 export default LoginForm;

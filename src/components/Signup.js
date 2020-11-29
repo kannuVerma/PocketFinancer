@@ -5,7 +5,10 @@ function Signup() {
   
   return (
         <div>
+          <div className="login-wrapper">
+        	<div className="login-inner">
  			<SignupForm />
+       </div></div>
  		</div>
   );
 }
