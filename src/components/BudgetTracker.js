@@ -41,11 +41,12 @@ export const BudgetTracker = (props) => {
     return (
     <div>
         <h5>Budget List</h5>
-        <table class="table table-striped">
+        <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Category</th>
                 <th>Amount</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -58,7 +59,7 @@ export const BudgetTracker = (props) => {
                                     {trans.amount}
                                 </td>
                                 <td>
-                                    <button onClick={() => deleteBudget(trans._id)} >X</button>
+                                    <button class="btn btn-link" style={{color: "red"}} onClick={() => deleteBudget(trans._id)} >X</button>
                                 </td>
                             </tr>;
         })}
