@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -112,7 +113,7 @@ export const History = (props) => {
 
     }
 
-    return (
+    return ( 
     <div>
         <h5>Transaction History</h5>
         <table class="table table-bordered">
@@ -142,9 +143,9 @@ export const History = (props) => {
                                     {trans.date}    
                                 </td>
                                 <td>
-                                    <button class="btn btn-default btn-sm" id="myBtn" onClick={() => editTransaction(trans._id)} > <i class="glyphicon glyphicon-pencil"></i>Edit</button>
+                                <button type="button" class="close"  onClick={() => editTransaction(trans._id)}  ><i class="fas fa-edit"></i> </button>
                                     <Modal isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
-                                    <button type="button" class="close" style={{color: "red"}}  onClick={closeModal} aria-label="Close">
+                                    <button type="button" class="close" style={{color: "red"}}  onClick={closeModal} >
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     <br></br><br></br><br></br>
@@ -187,7 +188,7 @@ export const History = (props) => {
                                     </Modal>
                                 </td>
                                 <td>
-                                    <button class="btn btn-link" style={{color: "red"}} onClick={() => deleteTransaction(trans._id)} >X</button>
+                                    <button class="btn btn-link" style={{color: "red"}} onClick={() => deleteTransaction(trans._id)} ><i class="fa fa-close"></i></button>
                                 </td>
                             </tr>;
         })}
