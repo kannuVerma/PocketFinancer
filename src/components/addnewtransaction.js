@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react'
+import $ from 'jquery';
+
 var today = new Date(),
 
 date1 = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
