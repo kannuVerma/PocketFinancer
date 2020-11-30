@@ -104,7 +104,7 @@ export const History = (props) => {
             props.editsuccess(r);
             setIsOpen(false)
             setExpense1('')
-            setCategory('')
+            setCategory('Entertainment')
             setAmount(0)
             setDate('')
           }
