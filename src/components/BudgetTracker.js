@@ -59,7 +59,7 @@ export const BudgetTracker = (props) => {
                                     {trans.amount}
                                 </td>
                                 <td>
-                                    <button class="btn btn-link" style={{color: "red"}} onClick={() => deleteBudget(trans._id)} >X</button>
+                                    <button class="btn btn-link" style={{color: "red"}} onClick={() => deleteBudget(trans._id)} ><i class="fa fa-close"></i></button>
                                 </td>
                             </tr>;
         })}
