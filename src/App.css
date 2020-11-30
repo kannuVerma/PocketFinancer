@@ -23,8 +23,8 @@ input {
 
 .App-header {
 	
-	background-color: #1e8678;
-	height: 50px;
+	background-color: #28A745;
+	height: 70px;
 	padding: 20px;
 	color: #222;
 }
@@ -138,11 +138,17 @@ dd {
 
 
   .budget-color {
-	  color: green
+	  color: green;
   }
 
   .expence-color {
-	  color:red
+	  color:red;
+	  font-size: 35px;
+  }
+
+  .budget-color {
+	  color: green;
+	  font-size: 35px;
   }
 
   .modal {

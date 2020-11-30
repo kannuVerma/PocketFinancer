@@ -14,7 +14,7 @@ export const ChartComponent = (props) => {
     useEffect(() =>{
         async function fetchData() {
             try {
-                console.log(props.details)
+                // console.log(props.details)
                 let edata = props.details.map( detail =>{
                     return [  detail.category,
                         detail.amount]               

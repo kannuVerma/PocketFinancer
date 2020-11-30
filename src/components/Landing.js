@@ -56,7 +56,7 @@ function Landing(props) {
               </div>
               <div class="card">
                 <div class="card-body">
-                  <div class="card-text"> <Incompence id = {props.match.params.id} transactionSuccess = {transactionSuccess} deletedIdSuccess = {deletedIdSuccess} editSuccess = {editSuccess}/></div>
+                  <div class="card-text"> <Incompence id = {props.match.params.id} transactionSuccess = {transactionSuccess} deletedIdSuccess = {deletedIdSuccess} editSuccess = {editSuccess} budgetSuccess = {budgetSuccess} deletesuccessbudget = {deletesuccessbudget} /></div>
                 </div>
               </div>
             </div>

@@ -21,7 +21,7 @@ export const AddNewTransaction = (props) => {
             category : category,
             date : date,
             userId: props.id
-        }
+        } 
         fetch('http://localhost:4000/expense',{
           method:'POST',
           headers: {
