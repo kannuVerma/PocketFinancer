@@ -1,13 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react'
+var today = new Date(),
+
+date1 = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
 export const AddNewTransaction = (props) => {
     const [expense,setExpense] = useState('');
     const [amount,setAmount] = useState(0);
     const [category, setCategory] = useState('Entertainment');
-    const [date, setDate] = useState('');
+    const [date, setDate] = useState(date1);
 
     const submit = e => {
+        
         e.preventDefault();
         const addNewTransaction = {
             desc : expense,
@@ -28,6 +32,10 @@ export const AddNewTransaction = (props) => {
         }).then(r => {
           if(r.status === 200){
             props.transactionsuccess(r);
+            setExpense('')
+            setAmount(0)
+            setCategory('Entertainment')
+            setDate(date1)
           }
         })
 
