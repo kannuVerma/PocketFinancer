@@ -42,7 +42,7 @@ function Landing(props) {
         <div>
           <Header />
 
-          
+          <div className='App-logout'> <a className='App-logout' href='/login'>Logout</a>	</div>
           <div class="card-deck">
             <div class="card">
               <div class="card-body">
@@ -78,13 +78,6 @@ function Landing(props) {
               </div>
             </div>
 
-          
-          {/* <BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess} deletesuccessbudget = {deletesuccessbudget} />
-          <Budget id = {props.match.params.id} budgetsuccess = {budgetsuccess} />
-          <Balance id = {props.match.params.id} editdetails = {editdetails} budgetSuccess = {budgetSuccess} deletebudgetSuccess = {deletebudgetSuccess} transactionSuccess = {transactionSuccess}/>
-          <Incompence id = {props.match.params.id} transactionSuccess = {transactionSuccess} deletedIdSuccess = {deletedIdSuccess} editSuccess = {editSuccess}/>
-          <AddNewTransaction  id = {props.match.params.id} transactionsuccess = {transactionsuccess}/> 
-          <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  deletesuccess  = {deletesuccess} editsuccess = {editsuccess} /> */}
           <ChartComponent details = {details}/>
           
             

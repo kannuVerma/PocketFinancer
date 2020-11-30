@@ -21,7 +21,7 @@ const App = () => {
 			<header className='App-header'>
 				<h1 className='App-title'>Welcome to PocketFinancer
 					</h1>	
-					<div className='App-logout'> <a className='App-logout' href='/login'>Logout</a>	</div>
+					
 				
 			</header>
 			<br />
