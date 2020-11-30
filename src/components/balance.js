@@ -18,7 +18,7 @@ export const Balance = (props) => {
         }
         fetchData();
     },
-    [props.budgetSuccess, props.transactionSuccess,props.deletebudgetSuccess]
+    [props.budgetSuccess, props.transactionSuccess,props.deletebudgetSuccess, props.deletedIdSuccess , props.editSuccess]
     )
     const diff = (a,b) =>{
         return b-a;

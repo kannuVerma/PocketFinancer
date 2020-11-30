@@ -19,6 +19,7 @@
     "fetch": "^1.1.0",
     "font-awesome": "^4.7.0",
     "http-proxy-middleware": "^1.0.6",
+    "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "mongodb": "^3.6.3",
     "month-year-picker": "^0.2.5-alpha-1",
