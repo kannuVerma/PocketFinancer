@@ -36,8 +36,7 @@ export const History = (props) => {
             try {
                 let id = props.id;
                 const { data } = await axios.get(`http://localhost:4000/expense/${id}`);
-                setExpense(data);
-                
+                setExpense(data);                
             } catch (e) {
                 console.log(e);
             }
