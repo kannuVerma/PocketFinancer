@@ -37,7 +37,8 @@ export const BudgetTracker = (props) => {
             console.log(e);
         }
     }
-
+    if(budget.length > 0)
+    {
     return (
     <div>
         <h5>Budget List</h5>
@@ -68,4 +69,13 @@ export const BudgetTracker = (props) => {
 
     </div>
     )
+    }
+    else {
+        return(
+            <div>
+                <h5>Budget List</h5>
+                <p>No records available</p>
+            </div>
+        )
+    }
 }

@@ -111,7 +111,8 @@ export const History = (props) => {
         })
 
     }
-
+    if(expense.length > 0)
+    {
     return ( 
     <div>
         <h5>Transaction History</h5>
@@ -195,4 +196,13 @@ export const History = (props) => {
         </table>
     </div>
     )
+    }
+    else {
+        return(
+            <div>
+                <h5>Transaction History</h5>
+                <p>No Transactions available</p>
+            </div>
+        )
+    }
 }

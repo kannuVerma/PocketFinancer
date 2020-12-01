@@ -23,7 +23,8 @@ export const Balance = (props) => {
     const diff = (a,b) =>{
         return b-a;
     }
-
+    if(details.length > 0)
+    {
     return (
     <div>
         <h5>Budget Metrics</h5>
@@ -58,4 +59,12 @@ export const Balance = (props) => {
 
     </div>
     )
+    } else {
+        return(
+            <div>
+                <h5>Budget Metrics</h5>
+                <p>No records available</p>
+            </div>
+        )
+    }
 }
