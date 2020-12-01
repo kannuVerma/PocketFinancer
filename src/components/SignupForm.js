@@ -56,12 +56,18 @@ const inputsPassword = (e) =>{
   }
 	return (
 
+    <div className="auth-wrapper">
+    <div className="auth-inner">
+    <div className='overlay'></div>
+    <div className='auth-content'>
     <form onSubmit = { handleSubmit }>
-    <h3>Sign Up</h3>
-    <div className="form-group">
-    <label>First name</label>
+      
+    <div className='welcome'>Welcome to PocketFinancer</div>
+    <div class='subtitle'>Balancing your money is the key to having enough.</div>
+    <div className="input-fields">
+    {/* <label>First name</label> */}
     <input
-      className="form-control"
+      className="input-line full-width"
       value={firstName}
       onChange={inputsFirstname}
       placeholder="First name"
@@ -69,11 +75,10 @@ const inputsPassword = (e) =>{
       name="firstName"
       
     />
-    </div>
-    <div className="form-group">
-    <label>Last name</label>
+    
+    {/* <label>Last name</label> */}
     <input
-      className="form-control"
+      className="input-line full-width"
       value={lastName}
       onChange={inputsLastname}
       placeholder="Last name"
@@ -81,11 +86,10 @@ const inputsPassword = (e) =>{
       name="lastName"
       
     />
-    </div>
-    <div className="form-group">
-    <label>Email address</label>
+    
+    {/* <label>Email address</label> */}
     <input
-      className="form-control"
+      className="input-line full-width"
       value={email}
       onChange={inputsEmail}
       placeholder="Email address"
@@ -93,23 +97,31 @@ const inputsPassword = (e) =>{
       name="email"
       
     />
-    </div>
-    <div className="form-group">
-    <label>Email address</label>
+   
+    {/* <label>Email address</label> */}
     <input
-      className="form-control"
+      className="input-line full-width"
       value={password}
       onChange={inputsPassword}
       placeholder="Password"
       type="password"
       name="password"
     />
+    <div>
+    <button className="ghost-round full-width" type="submit">Sign Up</button>
     </div>
-    <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-    <p className="forgot-password text-right">
+    </div>
+    <div className='spacing'>Already registered? Click here to <a className='highlight' href='/Login'>Login</a></div>
+    {/* <div>
+    <button className="ghost-round full-width" type="submit">Sign Up</button>
+    </div> */}
+    {/* <p className="dont-have-account text-right">
       Already registered? Click here to <a href="/Login">Login</a>
-    </p>
+    </p> */}
   </form>
+  </div>
+  </div>
+  </div>
 
 	);
 };
