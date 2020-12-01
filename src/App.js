@@ -18,12 +18,13 @@ const App = () => {
 	return (
 	<Router>
 		<div className='App'>
-			<header className='App-header'>
-				<h1 className='App-title'>Welcome to PocketFinancer
-					</h1>	
+			{/* <header className='App-header'>
+				<h1 className='App-title'>
+					Welcome to PocketFinancer
+				</h1>	
 					
 				
-			</header>
+			</header> */}
 			<br />
 			<br />
 			<div className='App'>

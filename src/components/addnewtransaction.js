@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react'
-import $ from 'jquery';
+// import $ from 'jquery';
 
 var today = new Date(),
 

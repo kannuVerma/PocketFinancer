@@ -57,14 +57,18 @@ const inputsPassword = (e) =>{
     //   })
   }
 	return (
-<div className="login-wrapper">
-        	<div className="login-inner">
+    <div className="auth-wrapper">
+    <div className="auth-inner">
+    <div className='overlay'></div>
+    <div className='auth-content'>
     <form onSubmit = { handleSubmit }>  
-    <h3>Sign In</h3>
-    <div className="form-group">
-    <label>Email address</label>
+    <div className='welcome'>Welcome to PocketFinancer</div>
+    <div class='subtitle'>Balancing your money is the key to having enough.</div>
+    {/* <h3>Sign In</h3> */}
+    <div className="input-fields">
+    {/* <label>Email address</label> */}
     <input
-      className="form-control"
+      className="input-line full-width"
       value={email}
       onChange={inputsEmail}
       placeholder="Enter email"
@@ -72,12 +76,10 @@ const inputsPassword = (e) =>{
       name="email"
       
     />
-    </div>
-
-    <div className="form-group">
-    <label>Password</label>
+    
+    {/* <label>Password</label> */}
     <input
-      className="form-control"
+      className="input-line full-width"
       value={password}
       onChange={inputsPassword}
       placeholder="Enter Password"
@@ -85,14 +87,20 @@ const inputsPassword = (e) =>{
       name="password"
       
     />
+    <div>
+    <button className='ghost-round full-width' type="submit">Login</button>
     </div>
-    <button type="submit" className="btn btn-primary btn-block">Submit</button>
+    </div>
+    <div className='spacing'>Don't have account? Click here to <a className='highlight' href='/signup'>signup</a></div>
+    {/* <div>
+    <button className='ghost-round full-width' type="submit">Login</button>
+    </div> */}
 
-
-    <p className="dont-have-account text-right">
+    {/* <p className="dont-have-account text-right">
                     Don't have account? Click here to <a href='/signup'>signup</a>
-                </p>
+                </p> */}
   </form>
+  </div>
 </div>
 </div>
 	);
