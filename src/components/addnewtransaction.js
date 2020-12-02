@@ -54,7 +54,7 @@ export const AddNewTransaction = (props) => {
         <div class="form-group row">
           <label  class="col-sm-2 col-form-label" for="amount"><h5>Amount</h5> </label>
           <div class="col-sm-10">
-          <input class="form-control" type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
+          <input class="form-control" type="number" value = {amount} min="0" onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
         </div>
         </div>
         <div class="form-group row">
