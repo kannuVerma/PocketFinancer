@@ -61,9 +61,11 @@ const inputsPassword = (e) =>{
     <div className="auth-inner">
     <div className='overlay'></div>
     <div className='auth-content'>
-    <form onSubmit = { handleSubmit }>  
+    <form onSubmit = { handleSubmit }>
+    <br/><br/><br/>
     <div className='welcome'>Welcome to PocketFinancer</div>
     <div class='subtitle'>Balancing your money is the key to having enough.</div>
+    <br/><br/>
     {/* <h3>Sign In</h3> */}
     <div className="input-fields">
     {/* <label>Email address</label> */}

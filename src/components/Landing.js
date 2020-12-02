@@ -48,12 +48,12 @@ function Landing(props) {
         <div className="container">
           
           <ul id="landing-tabs" class="nav nav-tabs navbar-inverse">
-            <li class="active"><a data-toggle="tab" href="#home"><h3>Dashboard</h3></a></li>
-            <li><a data-toggle="tab" href="#budget-div"><h3>Budget</h3></a></li>
-            <li><a data-toggle="tab" href="#expense-div"><h3>Expense</h3></a></li>
-            <li><a data-toggle="tab" href="#help-div"><h3>Help</h3></a></li>
-            <li><a data-toggle="tab" href="#about-us-div"><h3>Reviews</h3></a></li>
-            <li><a data-toggle="tab" className='App-logout text-center' href='/login'><h3>Logout</h3></a></li>
+            <li class="active"><a data-toggle="tab" href="#home"><h3>DASHBOARD</h3></a></li>
+            <li><a data-toggle="tab" href="#budget-div"><h3>BUDGET</h3></a></li>
+            <li><a data-toggle="tab" href="#expense-div"><h3>EXPENSE</h3></a></li>
+            <li><a data-toggle="tab" href="#help-div"><h3>HELP</h3></a></li>
+            <li><a data-toggle="tab" href="#about-us-div"><h3>REVIEWS</h3></a></li>
+            <li><a className='App-logout text-center' href='/login'><h3>LOGOUT</h3></a></li>
           </ul>
           <br/><br/>
 
@@ -112,20 +112,24 @@ function Landing(props) {
                 <h2>&nbsp;&nbsp;Read what our users has to say:</h2>
                 <div className="col-sm-5 col-md-8 col-lg-3">
                   <img alt='book' src={user1} className="rounded-0 border border-dark img-responsive" />
+                  <br/>
                   <div className="col-md-12"><h5>I always used to be broke by the month end time, PocketFinancer not only helped me sort out my expenses but also made me a responsible person, my parents are very proud of me now :)</h5></div>
                 </div>
                 
                 <div className="col-sm-5 col-md-4 col-lg-3">
                   <img alt='book' src={user2} className="rounded-0 border border-dark img-responsive" />
+                  <br/>
                   <div className="col-md-12"><h5>PocketFinancer has a wonderful customer service. They take user feedback, and give them maximum satisfaction.</h5></div>
                 </div>
 
                 <div className="col-sm-5 col-md-4 col-lg-3">
                   <img alt='book' src={user3} className="rounded-0 border border-dark img-responsive" />
+                  <br/>
                   <div className="col-md-12"><h5>I access PocketFinancer during my break time, it gives me motivation lead to organized life. Cheers!!</h5></div>
                 </div>
                 <div className="col-sm-5 col-md-4 col-lg-3">
                   <img alt='book' src={user4} className="rounded-0 border border-dark img-responsive" />
+                  <br/>
                   <div className="col-md-12"><h5>My friends keep on asking me how I am organizing my expenses & life so well ;)</h5></div>
                 </div>
                 
