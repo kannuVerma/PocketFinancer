@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from "react";
 import icon from '../images/pocket-image.jpg';
 
-
 const LoginForm = (props) => {
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
@@ -66,18 +65,14 @@ const inputsPassword = (e) =>{
     <form onSubmit = { handleSubmit }>
     <br/><br/><br/>
     
-    <div>
-    <div className="col-sm-2 col-md-2 col-lg-2">
-     
-    </div>
-    </div>
+    <div className="col-sm-3 col-md-3 col-lg-3"></div>
     
     <div id="welcome-logo-text">
       <div className='welcome'>Welcome to PocketFinancer</div>
-      &nbsp;&nbsp;&nbsp;&nbsp;<img alt='book' src={icon} width="100" height="100" className="rounded-circle border border-dark img-responsive" />
+      &nbsp;&nbsp;&nbsp;<img alt='book' src={icon} width="95" height="95" className="rounded-circle border border-dark img-responsive" />
     </div>
     <br/>
-    <div class='subtitle'>Balancing your money is the key to having enough.</div>
+    <div class='subtitle'>Balancing your money is the key to having enough</div>
     <br/><br/>
     {/* <h3>Sign In</h3> */}
     <div className="input-fields">
