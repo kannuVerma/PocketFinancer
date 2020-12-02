@@ -114,24 +114,24 @@ function Landing(props) {
                 <br/>
                 <h2>&nbsp;&nbsp;Read what our users has to say:</h2>
                 <div className="col-sm-5 col-md-8 col-lg-3">
-                  <img alt='book' src={user1} className="rounded-0 border border-dark img-responsive" />
+                  <img alt='book' width="200" src={user1} className="rounded-circle border border-dark img-responsive" />
                   <br/>
                   <div className="col-md-12"><h5>I always used to be broke by the month end time, PocketFinancer not only helped me sort out my expenses but also made me a responsible person, my parents are very proud of me now :)</h5></div>
                 </div>
                 
                 <div className="col-sm-5 col-md-4 col-lg-3">
-                  <img alt='book' src={user2} className="rounded-0 border border-dark img-responsive" />
+                  <img alt='book' width="210" src={user2} className="rounded-circle border border-dark img-responsive" />
                   <br/>
                   <div className="col-md-12"><h5>PocketFinancer has a wonderful customer service. They take user feedback, and give them maximum satisfaction.</h5></div>
                 </div>
 
                 <div className="col-sm-5 col-md-4 col-lg-3">
-                  <img alt='book' src={user3} className="rounded-0 border border-dark img-responsive" />
+                  <img alt='book' width="225" src={user3} className="rounded-circle border border-dark img-responsive" />
                   <br/>
                   <div className="col-md-12"><h5>I access PocketFinancer during my break time, it gives me motivation lead to organized life. Cheers!!</h5></div>
                 </div>
                 <div className="col-sm-5 col-md-4 col-lg-3">
-                  <img alt='book' src={user4} className="rounded-0 border border-dark img-responsive" />
+                  <img alt='book' width="230" src={user4} className="rounded-circle border border-dark img-responsive" />
                   <br/>
                   <div className="col-md-12"><h5>My friends keep on asking me how I am organizing my expenses & life so well ;)</h5></div>
                 </div>
