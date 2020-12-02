@@ -1,6 +1,7 @@
 import React from 'react';
 // import axios from "axios"; 
 import { useState } from "react";
+import icon from '../images/pocket-image.jpg';
 
 const SignupForm = (props) => {
   const [ firstName, setFirstName] = useState("");	
@@ -61,9 +62,16 @@ const inputsPassword = (e) =>{
     <div className='overlay'></div>
     <div className='auth-content'>
     <form onSubmit = { handleSubmit }>
-      
-    <div className='welcome'>Welcome to PocketFinancer</div>
-    <div class='subtitle'>Balancing your money is the key to having enough.</div>
+    <br/><br/>
+    
+    <div className="col-sm-3 col-md-3 col-lg-3"></div>
+    <div id="welcome-logo-text">
+      <div className='welcome'>Welcome to PocketFinancer</div>
+      &nbsp;&nbsp;&nbsp;<img alt='book' src={icon} width="100" height="100" className="rounded-circle border border-dark img-responsive" />
+    </div>
+    <br/>
+
+    <div class='subtitle'>Balancing your money is the key to having enough</div>
     <div className="input-fields">
     {/* <label>First name</label> */}
     <input
