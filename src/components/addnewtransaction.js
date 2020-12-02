@@ -78,7 +78,7 @@ export const AddNewTransaction = (props) => {
           </div>
           </div>
           <br/>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><h5>Add Expense</h5></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><h4>Add Expense</h4></button>
       </form>
     </div>
     )
