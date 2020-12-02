@@ -34,7 +34,7 @@ export const Budget = (props) => {
         <div class="form-group row">
           <label class="col-sm-2 col-form-label"  for="amountid"><h5>Amount</h5> </label>
           <div class="col-sm-10">
-          <input type="number" class="form-control" id="amountid" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
+          <input type="number" class="form-control" id="amountid" value = {amount} min="0" onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
           </div>
         </div>
         <div class="form-group row">
@@ -52,7 +52,7 @@ export const Budget = (props) => {
             </div>
         </div>
         <br/>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><h4>Add Budget Category</h4></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><h4>Add Budget</h4></button>
       </form>
     </div>
     )

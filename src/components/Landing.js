@@ -43,12 +43,15 @@ function Landing(props) {
     setdetails(r);
   }
 
+  function reload(e) {
+    window.location.reload(false);
+  }
  
   return (
         <div className="container">
           
           <ul id="landing-tabs" class="nav nav-tabs navbar-inverse">
-            <li class="active"><a data-toggle="tab" href="#home"><h3>DASHBOARD</h3></a></li>
+            <li class="active"><a data-toggle="tab" onClick={reload.bind(this)} href="#home"><h3>DASHBOARD</h3></a></li>
             <li><a data-toggle="tab" href="#budget-div"><h3>BUDGET</h3></a></li>
             <li><a data-toggle="tab" href="#expense-div"><h3>EXPENSE</h3></a></li>
             <li><a data-toggle="tab" href="#help-div"><h3>HELP</h3></a></li>
