@@ -351,7 +351,7 @@ dd {
 	box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
 	box-sizing: border-box;
 	height: 560px;
-	width: 80%;
+	width: 100%;
 	background: darkslategray !important;
 	background: url('./login_background.jpg') top left no-repeat;
   }
@@ -435,4 +435,7 @@ a{
 }
 .table {
 	font-size: 1.25rem;
+}
+#welcome-logo-text{
+	display: flex;
 }
