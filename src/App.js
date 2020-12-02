@@ -25,7 +25,6 @@ const App = () => {
 				
 			</header> */}
 			<br />
-			<br />
 			<div className='App'>
 			
         	<Switch>

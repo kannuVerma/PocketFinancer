@@ -27,27 +27,27 @@ export const Balance = (props) => {
     {
     return (
     <div>
-        <h5>Budget Metrics</h5>
-        <table class="table table-bordered">
-        <thead>
+        <h2><b>Where your money goes?</b></h2><br/>
+        <table class="table table-bordered table-striped">
+        <thead className="thead-dark">
             <tr>
-                <th scope="col">Amount</th>
                 <th scope="col">Category</th>
-                <th scope="col">Budget Amount</th>
-                <th scope="col">Remaining Budget</th>
+                <th scope="col">Budget</th>
+                <th scope="col">Spent</th>
+                <th scope="col">Remaining</th>
             </tr>
             </thead>
             <tbody>
             {details.map((trans,i) => {
                         return <tr> 
                                 <td>
-                                    {trans.amount} 
-                                </td>
-                                <td>
-                                    {trans.category}
+                                    <b>{trans.category}</b>
                                 </td>
                                 <td>
                                     {trans.budgetAmount}
+                                </td>
+                                <td>
+                                    {trans.amount} 
                                 </td>
                                 <td>
                                     {diff(trans.amount,trans.budgetAmount)}
@@ -62,7 +62,6 @@ export const Balance = (props) => {
     } else {
         return(
             <div>
-                <h5>Budget Metrics</h5>
                 <p>No records available</p>
             </div>
         )

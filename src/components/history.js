@@ -115,9 +115,9 @@ export const History = (props) => {
     {
     return ( 
     <div>
-        <h5>Transaction History</h5>
-        <table class="table table-bordered">
-        <thead>
+        <br/>
+        <table class="table table-bordered table-striped">
+        <thead className="thead-dark">
             <tr>
                 <th>Expense</th>
                 <th>Amount</th>

@@ -41,9 +41,8 @@ export const BudgetTracker = (props) => {
     {
     return (
     <div>
-        <h5>Budget List</h5>
-        <table class="table table-bordered">
-        <thead>
+        <table class="table table-bordered table-striped">
+        <thead className="thead-dark">
             <tr>
                 <th>Category</th>
                 <th>Amount</th>

@@ -44,22 +44,21 @@ export const AddNewTransaction = (props) => {
     }
     return (        
     <div>
-        <h5> Transaction</h5>
       <form onSubmit = {submit}>
         <div class="form-group row">  
-          <label class="col-sm-2 col-form-label" for="expense">Title </label>
+          <label class="col-sm-2 col-form-label" for="expense"><h5>Title</h5> </label>
           <div class="col-sm-10">
             <input class="form-control" type="expense" value = {expense} onChange={(e) => setExpense(e.target.value)} placeholder="Enter Expense" />
             </div>
           </div>
         <div class="form-group row">
-          <label  class="col-sm-2 col-form-label" for="amount">Amount </label>
+          <label  class="col-sm-2 col-form-label" for="amount"><h5>Amount</h5> </label>
           <div class="col-sm-10">
           <input class="form-control" type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
         </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="category">Category </label>
+            <label class="col-sm-2 col-form-label" for="category"><h5>Category</h5> </label>
             <div class="col-sm-10">
               <select class="form-control" value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
                 <option value="Entertainment">Entertainment</option>
@@ -73,12 +72,13 @@ export const AddNewTransaction = (props) => {
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="date">Date </label>
+            <label class="col-sm-2 col-form-label" for="date"><h5>Date</h5> </label>
             <div class="col-sm-10">
             <input class="form-control" type="date" value = {date} onChange={(e) => setDate(e.target.value)} name="date" />
           </div>
           </div>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add transaction</button>
+          <br/>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><h5>Add Expense</h5></button>
       </form>
     </div>
     )
