@@ -119,19 +119,19 @@ export const History = (props) => {
         <table class="table table-bordered table-striped">
         <thead className="thead-dark">
             <tr>
-                <th>Expense</th>
-                <th>Amount</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th><h5>Expense</h5></th>
+                <th><h5>Amount</h5></th>
+                <th><h5>Category</h5></th>
+                <th><h5>Date</h5></th>
+                <th><h5>Edit</h5></th>
+                <th><h5>Delete</h5></th>
             </tr>
         </thead>
         <tbody>
             {expense.map((trans,i) => {
                         return <tr> 
                                 <td>
-                                    {trans.desc} 
+                                    <h5>{trans.desc}</h5>
                                 </td>
                                 <td>
                                     {trans.amount}

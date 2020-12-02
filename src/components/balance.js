@@ -31,17 +31,17 @@ export const Balance = (props) => {
         <table class="table table-bordered table-striped">
         <thead className="thead-dark">
             <tr>
-                <th scope="col">Category</th>
-                <th scope="col">Budget</th>
-                <th scope="col">Spent</th>
-                <th scope="col">Remaining</th>
+                <th scope="col"><h4>Category</h4></th>
+                <th scope="col"><h4>Budget</h4></th>
+                <th scope="col"><h4>Spent</h4></th>
+                <th scope="col"><h4>Remaining</h4></th>
             </tr>
             </thead>
             <tbody>
             {details.map((trans,i) => {
                         return <tr> 
                                 <td>
-                                    <b>{trans.category}</b>
+                                    <h5>{trans.category}</h5>
                                 </td>
                                 <td>
                                     {trans.budgetAmount}
