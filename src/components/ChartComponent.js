@@ -63,8 +63,9 @@ export const ChartComponent = (props) => {
      
     return (
         <div>
-            <div class="card-deck">
-                <div class="card">
+            <div class="container card-deck">
+                
+                <div class="card col-md-3">
                     <div class="card-body">
                         <h3 class="card-title border"><b>TOTAL BUDGET: {budgetInTotal}</b></h3>
                         <div class="card-text">
@@ -76,17 +77,29 @@ export const ChartComponent = (props) => {
                                 options={options}
                             />
                         </div>
-                    </div>        
-              </div>
+                    </div>
+                </div>
               
+                <div class="card col-md-3">
+                    <div class="card-body">
+                        <h3 class="card-title border"><b>TOTAL EXPENSE: {expenseInTotal}</b></h3>
+                        <div class="card-text"> <Chart
+                                    chartType="PieChart"
+                                    width="100%"
+                                    height="300px"
+                                    data={expenseData}
+                                    options={options}
+                                /> </div>
+                    </div>
+                </div>
 
-              <div class="card">
+              <div class="card col-md-6">
                 <div class="card-body">
-                <h3 class="card-title border"><b>TOTAL EXPENSE: {expenseInTotal}</b></h3>
+                
                 <br/>
                   <div class="card-text"> 
                   <Chart
-                width={'500px'}
+                width={'410px'}
                 height={'300px'}
                 chartType="Bar"
                 loader={<div>Loading Chart</div>}

@@ -48,7 +48,7 @@ function Landing(props) {
         <div className="container">
           
           <ul id="landing-tabs" class="nav nav-tabs navbar-inverse">
-            <li class="active"><a data-toggle="tab" href="#home" onClick="reload()"><h3>Dashboard</h3></a></li>
+            <li class="active"><a data-toggle="tab" href="#home"><h3>Dashboard</h3></a></li>
             <li><a data-toggle="tab" href="#budget-div"><h3>Budget</h3></a></li>
             <li><a data-toggle="tab" href="#expense-div"><h3>Expense</h3></a></li>
             <li><a data-toggle="tab" href="#help-div"><h3>Help</h3></a></li>
