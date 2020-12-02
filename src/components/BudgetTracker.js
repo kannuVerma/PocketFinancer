@@ -41,20 +41,19 @@ export const BudgetTracker = (props) => {
     {
     return (
     <div>
-        <h5>Budget List</h5>
-        <table class="table table-bordered">
-        <thead>
+        <table class="table table-bordered table-striped">
+        <thead className="thead-dark">
             <tr>
-                <th>Category</th>
-                <th>Amount</th>
-                <th>Delete</th>
+                <th><h5>Category</h5></th>
+                <th><h5>Amount</h5></th>
+                <th><h5>Delete</h5></th>
             </tr>
         </thead>
         <tbody>
             {budget.map((trans,i) => {
                         return <tr> 
                                 <td>
-                                    {trans.category} 
+                                    <h5>{trans.category}</h5>
                                 </td>
                                 <td>
                                     {trans.amount}
