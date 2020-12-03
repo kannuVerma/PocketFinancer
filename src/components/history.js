@@ -119,12 +119,12 @@ export const History = (props) => {
         <table class="table table-bordered table-striped">
         <thead className="thead-dark">
             <tr>
-                <th><h5>Expense</h5></th>
-                <th><h5>Amount</h5></th>
-                <th><h5>Category</h5></th>
-                <th><h5>Date</h5></th>
-                <th><h5>Edit</h5></th>
-                <th><h5>Delete</h5></th>
+                <th><h4>Expense</h4></th>
+                <th><h4>Amount $</h4></th>
+                <th><h4>Category</h4></th>
+                <th><h4>Date</h4></th>
+                <th><h4>Edit</h4></th>
+                <th><h4>Delete</h4></th>
             </tr>
         </thead>
         <tbody>

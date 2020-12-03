@@ -443,3 +443,8 @@ a{
 .card {
 	border: 3px solid rgba(0,0,0,.125) !important;
 }
+.form-control{
+	padding: 0.375rem .75rem !important;
+	border: 2px solid #ced4da !important;
+	font-size: 1.45rem !important;
+}

@@ -32,9 +32,9 @@ export const Balance = (props) => {
         <thead className="thead-dark">
             <tr>
                 <th scope="col"><h4>Category</h4></th>
-                <th scope="col"><h4>Budget</h4></th>
-                <th scope="col"><h4>Spent</h4></th>
-                <th scope="col"><h4>Remaining</h4></th>
+                <th scope="col"><h4>Budget $</h4></th>
+                <th scope="col"><h4>Spent $</h4></th>
+                <th scope="col"><h4>Remaining $</h4></th>
             </tr>
             </thead>
             <tbody>

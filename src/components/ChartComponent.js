@@ -67,7 +67,7 @@ export const ChartComponent = (props) => {
                 
                 <div class="card col-md-3">
                     <div class="card-body">
-                        <h3 class="card-title border text-success"><b>TOTAL BUDGET: {budgetInTotal}</b></h3>
+                        <h3 class="card-title border text-success"><b>TOTAL BUDGET: ${budgetInTotal}</b></h3>
                         <div class="card-text">
                             <Chart
                                 chartType="PieChart"
@@ -82,7 +82,7 @@ export const ChartComponent = (props) => {
               
                 <div class="card col-md-3">
                     <div class="card-body">
-                        <h3 class="card-title border text-danger"><b>TOTAL EXPENSE: {expenseInTotal}</b></h3>
+                        <h3 class="card-title border text-danger"><b>TOTAL EXPENSE: ${expenseInTotal}</b></h3>
                         <div class="card-text"> <Chart
                                     chartType="PieChart"
                                     width="100%"
