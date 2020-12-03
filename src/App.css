@@ -1,5 +1,6 @@
 .App {
 	text-align: center;
+	background-color: rgb(250,250,250);
 }
 .center {
 	display: block;
@@ -48,6 +49,7 @@ cite {
 table {
 	align-content: center;
 	margin: auto;
+	border: 3px solid rgba(0,0,0,.125) !important;
 }
 td {
 	padding: 10px;
@@ -437,4 +439,7 @@ a{
 }
 #welcome-logo-text{
 	display: flex;
+}
+.card {
+	border: 3px solid rgba(0,0,0,.125) !important;
 }
