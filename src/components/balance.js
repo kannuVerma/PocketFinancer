@@ -10,8 +10,8 @@ export const Balance = (props) => {
             try {
                 let id = props.id;
                 const { data } = await axios.get(`http://localhost:4000/dashboard/${id}`);
-                setdetails(data);
-                props.editdetails(data);               
+                setdetails(data.reverse());
+                props.editdetails(data.reverse());               
             } catch (e) {
                 console.log(e);
             }

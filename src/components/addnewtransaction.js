@@ -38,6 +38,7 @@ export const AddNewTransaction = (props) => {
             setAmount(0)
             setCategory('Entertainment')
             setDate(date1)
+            props.latestmodifiedtransaction(addNewTransaction);
           }
         })
 

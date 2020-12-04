@@ -23,6 +23,7 @@ export const Budget = (props) => {
         }).then(r => {
           if(r.status === 200){
             props.budgetsuccess(r);
+            props.latestmodified(addNewBudget);
           }
         })
     }
@@ -32,13 +33,13 @@ export const Budget = (props) => {
         
       <form onSubmit = {submit}>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label"  for="amountid"><h4>Amount</h4> </label>
+          <label class="col-sm-2 col-form-label"  for="amountid"><h5>Amount</h5> </label>
           <div class="col-sm-10">
           <input type="number" class="form-control" id="amountid" value = {amount} min="0" onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
           </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="category"><h4>Category</h4></label>
+            <label class="col-sm-2 col-form-label" for="category"><h5>Category</h5></label>
             <div class="col-sm-10">
             <select class="form-control" value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
                 <option value="Entertainment">Entertainment</option>

@@ -107,7 +107,7 @@ export const ChartComponent = (props) => {
                 options={{
                  // Material design options
                      chart: {
-                            title: 'Monthly Spending Habbits',
+                            title: 'Monthly Spending Habits',
                             subtitle: 'Expense, Budget, and Remaining budge for the current month',
                         },
                     }

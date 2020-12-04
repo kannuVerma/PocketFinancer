@@ -448,3 +448,27 @@ a{
 	border: 2px solid #ced4da !important;
 	font-size: 1.45rem !important;
 }
+.form-control {
+	line-height: 21px !important;
+}
+.td-budget-highlight {
+	color:black;
+	background-color: transparent;
+	animation: mymove1 5s;
+	animation-iteration-count: 1;
+}
+@keyframes mymove1 {
+	from {background-color: lightgreen;}
+	to {background-color: transparent;}
+  }
+
+.td-transaction-highlight {
+	color:black;
+	background-color: transparent;
+	animation: mymove2 5s;
+	animation-iteration-count: 1;
+}
+@keyframes mymove2 {
+	from {background-color: lightcoral;}
+	to {background-color: transparent;}
+  }
