@@ -49,18 +49,21 @@ export const History = (props) => {
     [props.transactionSuccess, props.latestModifiedTrasaction, del,edit1]
     )
     const deleteTransaction = async(transid) => {
-        try {
-            let id = props.id;
-            const deletedid = await axios.delete(`http://localhost:4000/expense`, 
-                {data: {
-                    userId : id,
-                    expenseId : transid
-                }}
-            )
-            setdel(deletedid);
-            props.deletesuccess(deletedid);
-        } catch(e){
-            console.log(e);
+        var deleteConfirmation = window.confirm("Are you sure you want to delete this Expense?");
+        if(deleteConfirmation) {
+            try {
+                let id = props.id;
+                const deletedid = await axios.delete(`http://localhost:4000/expense`, 
+                    {data: {
+                        userId : id,
+                        expenseId : transid
+                    }}
+                )
+                setdel(deletedid);
+                props.deletesuccess(deletedid);
+            } catch(e){
+                console.log(e);
+            }
         }
     }
     
