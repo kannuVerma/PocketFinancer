@@ -31,19 +31,22 @@ export const History = (props) => {
     const [modalIsOpen,setIsOpen] = useState(false);
     const [del, setdel] = useState(undefined);
     const [edit1,setedit1] = useState(undefined);
+    const [latestModifiedTransactionRow, setLatestModifiedTransactionRow] = useState(undefined);
+
     useEffect(() =>{
         async function fetchData() {
+            setLatestModifiedTransactionRow(props.latestModifiedTrasaction);
             try {
                 let id = props.id;
                 const { data } = await axios.get(`http://localhost:4000/expense/${id}`);
-                setExpense(data);                
+                setExpense(data.reverse());  
             } catch (e) {
                 console.log(e);
             }
         }
         fetchData();
     },
-    [props.transactionSuccess, del,edit1]
+    [props.transactionSuccess, props.latestModifiedTrasaction, del,edit1]
     )
     const deleteTransaction = async(transid) => {
         try {
@@ -119,17 +122,79 @@ export const History = (props) => {
         <table class="table table-bordered table-striped">
         <thead className="thead-dark">
             <tr>
-                <th><h5>Expense</h5></th>
-                <th><h5>Amount</h5></th>
-                <th><h5>Category</h5></th>
-                <th><h5>Date</h5></th>
-                <th><h5>Edit</h5></th>
-                <th><h5>Delete</h5></th>
+                <th><h4>Expense</h4></th>
+                <th><h4>Amount $</h4></th>
+                <th><h4>Category</h4></th>
+                <th><h4>Date</h4></th>
+                <th><h4>Edit</h4></th>
+                <th><h4>Delete</h4></th>
             </tr>
         </thead>
         <tbody>
             {expense.map((trans,i) => {
-                        return <tr> 
+                return latestModifiedTransactionRow != undefined && latestModifiedTransactionRow.category == trans.category && latestModifiedTransactionRow.amount == trans.amount?
+                        <tr className="td-transaction-highlight"> 
+                                <td>
+                                    <h5>{trans.desc}</h5>
+                                </td>
+                                <td>
+                                    {trans.amount}
+                                </td>
+                                <td>
+                                    {trans.category}    
+                                </td>
+                                <td>
+                                    {trans.date}    
+                                </td>
+                                <td>
+                                <button type="button" class="close"  onClick={() => editTransaction(trans._id)}  ><i class="fas fa-edit"></i> </button>
+                                    <Modal isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
+                                    <button type="button" class="close" style={{color: "red"}}  onClick={closeModal} >
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <br></br><br></br><br></br>
+                                        <form onSubmit = {submit}>
+                                            <div class="form-group row">
+                                            <label  class="col-sm-2 col-form-label" for="expense">Expense </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="expense" value = {expense1} onChange={(e) => setExpense1(e.target.value)} placeholder="Enter Expense" />
+                                            </div>
+                                            </div>
+                                            <div class="form-group row">
+                                            <label   class="col-sm-2 col-form-label" for="amount">Amount </label>
+                                            <div class="col-sm-10">
+                                            <input class="form-control" type="number" value = {amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount" />
+                                            </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label  class="col-sm-2 col-form-label" for="category">Category</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" value = {category} onChange={(e) => setCategory(e.target.value)} name="category">
+                                                    <option value="Entertainment">Entertainment</option>
+                                                    <option value="Food and Drinks">Food and Drinks</option>
+                                                    <option value="Home">Home</option>
+                                                    <option value="Utilities">Utilities</option>
+                                                    <option value="Transportation">Transportation</option>
+                                                    <option value="Life">Life</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label  class="col-sm-2 col-form-label" for="date">Date</label>
+                                                <div class="col-sm-10">
+                                                <input class="form-control" type="date" value = {date} onChange={(e) => setDate(e.target.value)} name="date" />
+                                            </div>
+                                            </div>
+                                            <button class="btn btn-outline-success my-2 my-sm-0" >Update</button>
+                                        </form>
+                                       
+                                    </Modal>
+                                </td>
+                                <td>
+                                    <button class="btn btn-link" style={{color: "red"}} onClick={() => deleteTransaction(trans._id)} ><i class="fa fa-close"></i></button>
+                                </td>
+                            </tr>:<tr> 
                                 <td>
                                     <h5>{trans.desc}</h5>
                                 </td>

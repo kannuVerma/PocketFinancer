@@ -23,6 +23,7 @@ export const Budget = (props) => {
         }).then(r => {
           if(r.status === 200){
             props.budgetsuccess(r);
+            props.latestmodified(addNewBudget);
           }
         })
     }

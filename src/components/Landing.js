@@ -24,6 +24,9 @@ function Landing(props) {
   const [editSuccess,seteditSuccess ] = useState(undefined);
   const [deletebudgetSuccess,setdeletebudgetsuccess] = useState(undefined);
   const [details,setdetails] = useState(undefined);
+  const [latestModified,setLatestModifiedRow] = useState(undefined);
+  const [latestModifiedTrasaction,setLatestModifiedTransactionRow] = useState(undefined);
+  
   const transactionsuccess = async(r) => {
     settransactionsuccess(r);
   }
@@ -42,7 +45,12 @@ function Landing(props) {
   const editdetails = async(r) => {
     setdetails(r);
   }
-
+  const latestmodified = async(r) =>{
+    setLatestModifiedRow(r);
+  }
+  const latestmodifiedtransaction = async(r) =>{
+    setLatestModifiedTransactionRow(r);
+  }
   function reload(e) {
     window.location.reload(false);
   }
@@ -72,20 +80,20 @@ function Landing(props) {
             
             <div id="budget-div" class="tab-pane">
               <div class="card-body">
-                <div class="card-text"><Budget id = {props.match.params.id} budgetsuccess = {budgetsuccess} /></div>        
+                <div class="card-text"><Budget id = {props.match.params.id} latestmodified = {latestmodified} budgetsuccess = {budgetsuccess} /></div>        
                 <div class="card-body">
                 <div class="card-body">
-                  <div class="card-text"><BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess} deletesuccessbudget = {deletesuccessbudget} /></div>        
+                  <div class="card-text"><BudgetTracker id = {props.match.params.id} budgetSuccess = {budgetSuccess} latestModified = {latestModified} deletesuccessbudget = {deletesuccessbudget} /></div>        
                 </div>
                 </div>
               </div>
             </div>
             
             <div id="expense-div" class="tab-pane">
-              <div class="card-text"> <AddNewTransaction  id = {props.match.params.id} transactionsuccess = {transactionsuccess}/> </div>
+              <div class="card-text"> <AddNewTransaction  id = {props.match.params.id} latestmodifiedtransaction = {latestmodifiedtransaction} transactionsuccess = {transactionsuccess}/> </div>
               <br/>
               <div class="card-body">
-                <div class="card-text"> <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  deletesuccess  = {deletesuccess} editsuccess = {editsuccess} /> </div>
+                <div class="card-text"> <History  id = {props.match.params.id} transactionSuccess = {transactionSuccess}  latestModifiedTrasaction = {latestModifiedTrasaction} deletesuccess  = {deletesuccess} editsuccess = {editsuccess} /> </div>
               </div>
             </div>
 
@@ -135,7 +143,7 @@ function Landing(props) {
                 <div className="col-sm-5 col-md-4 col-lg-3">
                   <img alt='book' width="230" src={user4} className="rounded-circle border border-dark img-responsive" />
                   <br/>
-                  <h3>Jo Blathe</h3><br/>
+                  <h3>Jo Blythe</h3><br/>
                   <div className="col-md-12"><h5>My friends keep on asking me how I am organizing my expenses & life so well ;)</h5></div>
                 </div>
                 
