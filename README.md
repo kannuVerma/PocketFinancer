@@ -18,7 +18,7 @@ npm run dev
 
 ```
 
-# Technologies
+### Technologies
 - HTML5
 - CSS
 - Express
@@ -27,7 +27,7 @@ npm run dev
 - Bootstrap
 - React
 
-# Author
+### Author
 - Akhil Manchikanti
 - Jay Goyani
 - Meghana Bhat 
