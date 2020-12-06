@@ -3,12 +3,6 @@
 ```bash
 npm install
 
-cd backend
-
-npm install
-
-cd ..
-
 ```
 
 ### Run 
@@ -30,6 +24,6 @@ npm run dev
 ### Author
 - Akhil Manchikanti
 - Jay Goyani
-- Meghana Bhat 
+- Meghana Bhat Manikal
 - Kannu Verma
 - Yifan Lu
