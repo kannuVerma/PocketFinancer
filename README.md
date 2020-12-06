@@ -27,3 +27,7 @@ npm run dev
 - Meghana Bhat Manikal
 - Kannu Verma
 - Yifan Lu
+
+### About Dashboard
+
+Graphs on the dahsboard for the new user is updtaed after both budget and expense value is added for the first time.
