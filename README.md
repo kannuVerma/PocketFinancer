@@ -28,6 +28,10 @@ npm run dev
 - Kannu Verma
 - Yifan Lu
 
+### Pre-requisite
+
+- Install mongodb compass (https://www.mongodb.com/try/download)
+
 ### About Dashboard
 
 Graphs on the dahsboard for the new user is updtaed after both budget and expense value is added for the first time.
